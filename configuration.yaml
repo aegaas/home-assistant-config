@@ -346,7 +346,8 @@ switch: !include_dir_merge_list switches/
 # @link https://home-assistant.io/components/tts/
 #
 tts:
-  - platform: google
+  - platform: google_translate
+    service_name: google_say
 
 
 #

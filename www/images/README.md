@@ -1,11 +1,11 @@
 <!-- Header -->
-[link-profile]:https://github.com/renemarc
-[link-repo]:https://github.com/renemarc/home-assistant-config
+[link-profile]:https://github.com/aegaas
+[link-repo]:https://github.com/aegaas/home-assistant-config
 
 <a name="top"></a>
-<code>[renemarc][link-profile] / **[home-assistant-config][link-repo]** / [www](..) / **images** /</code>
+<code>[aegaas][link-profile] / **[home-assistant-config][link-repo]** / [www](..) / **images** /</code>
 
-<p align="right"><sub><strong><a href="https://github.com/renemarc/home-assistant-config">🏠 Home Assistant configuration for a smart-looking place! 😎</a><br>Be sure to <a href="#" title="star">⭐️</a> this repo!</strong></sub></p>
+<p align="right"><sub><strong><a href="https://github.com/aegaas/home-assistant-config">🏠 Home Assistant configuration for a smart-looking place! 😎</a><br>Be sure to <a href="#" title="star">⭐️</a> this repo!</strong></sub></p>
 
 <!-- Hero -->
 <figure>
@@ -26,7 +26,7 @@ Various supporting images useful in documenting this repository.
             <img src="technology-diagram.png" alt="Home Assistant technology diagram">
         </div>
         <figcaption>
-            <p><strong>Technology diagram (<a href="technology-diagram.png"><code>PNG</code></a>, <a href="technology-diagram.svg"><code>SVG</code></a>). Made with <a href="https://www.draw.io/?title=Home%20Assistant%20Technology%20Diagram.xml#Uhttps%3A%2F%2Fgithub.com%2Frenemarc%2Fhome-assistant-config%2Fraw%2Fmaster%2Fwww%2Fimages%2Ftechnology-diagram.xml">Draw.io</a> (<a href="technology-diagram.xml"><code>XML</code></a> source file).</strong></p>
+            <p><strong>Technology diagram (<a href="technology-diagram.png"><code>PNG</code></a>, <a href="technology-diagram.svg"><code>SVG</code></a>). Made with <a href="https://www.draw.io/?title=Home%20Assistant%20Technology%20Diagram.xml#Uhttps%3A%2F%2Fgithub.com%2Faegaas%2Fhome-assistant-config%2Fraw%2Fmaster%2Fwww%2Fimages%2Ftechnology-diagram.xml">Draw.io</a> (<a href="technology-diagram.xml"><code>XML</code></a> source file).</strong></p>
         </figcaption>
     </figure>
 </div>

@@ -8,7 +8,7 @@ Based on prior work by Matt Bierner.
 See https://github.com/mattbierner/MinutesToMidnight
 
 For more details about this platform, please refer to the documentation at
-https://github.com/renemarc/home_assistant_doomsday_clock/
+https://github.com/aegaas/home_assistant_doomsday_clock/
 """
 import datetime
 import logging

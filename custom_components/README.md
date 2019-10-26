@@ -1,11 +1,11 @@
 <!-- Header -->
-[link-profile]:https://github.com/renemarc
-[link-repo]:https://github.com/renemarc/home-assistant-config
+[link-profile]:https://github.com/aegaas
+[link-repo]:https://github.com/aegaas/home-assistant-config
 
 <a name="top"></a>
-<code>[renemarc][link-profile] / **[home-assistant-config][link-repo]** / **custom_components** /</code>
+<code>[aegaas][link-profile] / **[home-assistant-config][link-repo]** / **custom_components** /</code>
 
-<p align="right"><sub><strong><a href="https://github.com/renemarc/home-assistant-config">🏠 Home Assistant configuration for a smart-looking place! 😎</a><br>Be sure to <a href="#" title="star">⭐️</a> this repo!</strong></sub></p>
+<p align="right"><sub><strong><a href="https://github.com/aegaas/home-assistant-config">🏠 Home Assistant configuration for a smart-looking place! 😎</a><br>Be sure to <a href="#" title="star">⭐️</a> this repo!</strong></sub></p>
 
 <!-- Hero -->
 <figure>
@@ -58,7 +58,7 @@ Supports basic operation of [Prismatik](https://github.com/psieg/Lightpack) moni
 
 ### [`💀 ./sensor/doomsday_clock.py`](sensor/doomsday_clock.py)
 
-A local copy of my depressing [Doomsday Clock sensor](https://github.com/renemarc/home-assistant-doomsday-clock) that tracks the _Bulletin of the Atomic Scientists_' [world threat assessment index](https://thebulletin.org/doomsday-clock/) indicating how close humanity is to a man-made global catastrophe either through nuclear war or climate change.
+A local copy of my depressing [Doomsday Clock sensor](https://github.com/aegaas/home-assistant-doomsday-clock) that tracks the _Bulletin of the Atomic Scientists_' [world threat assessment index](https://thebulletin.org/doomsday-clock/) indicating how close humanity is to a man-made global catastrophe either through nuclear war or climate change.
 
 <div align="center">
     <figure>
