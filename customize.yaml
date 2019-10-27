@@ -243,7 +243,6 @@ sensor.front_door_sensor_battery:
       friendly_name: Front Door Battery
 
 
-
 #
 # Sensors: System
 #

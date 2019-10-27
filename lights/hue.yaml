@@ -1,0 +1,39 @@
+- platform: hue
+  name: Dexter's Night Light
+  entity_id: light.dexter_s_night_light
+
+- platform: hue
+  name: Zoey's night light
+  entity_id: light.zoey_s_night_light
+
+- platform: hue
+  name: Family Room 1
+  entity_id: light.hue_white_lamp_1
+
+- platform: hue
+  name: Family Room 2
+  entity_id: light.hue_white_lamp_2
+
+- platform: hue
+  name: LEGO Left
+  entity_id: light.lego_left
+
+- platform: hue
+  name: LEGO Right
+  entity_id: light.lego_right
+
+- platform: hue
+  name: Master Bedroom L
+  entity_id: light.hue_white_lamp_3
+
+- platform: hue
+  name: Master Bedroom R
+  entity_id: light.hue_white_lamp_4
+
+- platform: hue
+  name: Office Light 1
+  entity_id: light.hue_white_lamp_3_2
+
+- platform: hue
+  name: Office Light 2
+  entity_id: light.hue_white_lamp_4_2

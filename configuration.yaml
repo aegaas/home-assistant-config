@@ -224,23 +224,6 @@ input_boolean: !include misc/input_booleans.yaml
 input_select: !include misc/input_selects.yaml
 
 
-#
-# iOS companion component for the  Home Assistant iOS app
-#
-# @link https://itunes.apple.com/us/app/home-assistant-open-source-home-automation/id1099568401
-# @link https://home-assistant.io/docs/ecosystem/ios/
-#
-ios:
-
-
-#
-# LIFX
-#
-# @link https://www.home-assistant.io/components/lifx/
-#
-lifx: !include misc/lifx.yaml
-
-
 
 #
 # Lights

@@ -17,4 +17,4 @@
     # Call the wake up sequence.
     - service: script.turn_on
       data:
-         entity_id: script.wake_up
+        entity_id: script.wake_up

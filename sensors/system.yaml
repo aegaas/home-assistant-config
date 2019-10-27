@@ -303,7 +303,6 @@
 - platform: command_line
   name: CPU Cores
   scan_interval: 86400
-  icon_template: mdi:chip
   command: >-
     grep 'model name' /proc/cpuinfo | wc -l
 

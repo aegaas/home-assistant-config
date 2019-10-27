@@ -1,0 +1,23 @@
+night_lights:
+  name: Night Lights
+  entities:
+    - light.zoey_s_night_light
+    - light.dexter_s_night_light
+
+family_room:
+  name: Family Room
+  entities:
+    - light.lego_left
+    - light.lego_right
+
+master_bedroom:
+  name: Master Bedroom Lights
+  entities:
+    - light.hue_white_lamp_3
+    - light.hue_white_lamp_4
+
+office:
+  name: Office Lights
+  entities:
+    - light.hue_white_lamp_3_2
+    - light.hue_white_lamp_4_2
