@@ -60,3 +60,5 @@
         {% if is_state('light.lightpack', 'on') %}
           {{ states('variable.lightpack_effect') }}
         {% endif %}
+
+- platform: ring

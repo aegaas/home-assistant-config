@@ -21,6 +21,18 @@ binary_sensor: !include misc/binary_sensors.yaml
 #
 camera: !include_dir_merge_list cameras/
 
+#Note: The influxdb runs along side the HA DB.  It does not replace it.  influxdb is used to grab data for Grafana.
+influxdb:
+  host: 192.168.0.2:8086
+  database: home_assistant
+
+
+hue:
+  bridges:
+    - host: 192.168.0.40
+      # filename: phue.conf
+      allow_unreachable: true
+      allow_hue_groups: false
 
 #
 # Enable the configuration UI
@@ -115,7 +127,7 @@ group: !include_dir_merge_named groups/
 #
 # @link https://www.home-assistant.io/hassio/
 #
-hassio:
+# hassio:
 
 
 #
@@ -125,6 +137,7 @@ hassio:
 #
 history:
 
+speedtestdotnet:
 
 #
 # Setup basic Home Assistant information
@@ -134,13 +147,17 @@ homeassistant:
   latitude: !secret zone_home_latitude
   longitude: !secret zone_home_longitude
   elevation: !secret zone_home_elevation
-  unit_system: metric
+  unit_system: imperial
   time_zone: !secret homeassistant_time_zone
   customize_glob: !include customize_glob.yaml
   customize: !include customize.yaml
   whitelist_external_dirs:
     - !secret homeassistant_whitelist_config
-
+  auth_providers:
+    - type: trusted_networks
+      trusted_networks:
+        - 192.168.0.0/24
+        - fd00::/8
 
 #
 # HomeKit
@@ -323,6 +340,13 @@ sensor: !include_dir_merge_list sensors/
 #
 shell_command: !include misc/shell_commands.yaml
 
+
+#
+# Ring Home Security
+#
+# @link https://home-assistant.io/components/ring/
+#
+ring: !include misc/ring.yaml
 
 #
 # Track the sun

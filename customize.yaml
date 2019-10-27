@@ -493,22 +493,22 @@ sensor.motion_status:
     theme: >-
       return state != 'Clear' ? 'card-warning'
       : null;
-sensor.printer_drum_black:
-  friendly_name: Printer Drum
-  extra_data_template: >-
-    var e = 'sensor.printer_drum_remain';
-    return entities[e] !== undefined && entities[e].state != 'unknown'
-    ? Math.round(parseFloat(entities[e].state)) + ' ' +
-      entities[e].attributes['unit_of_measurement'] + ' remaining'
-    : null;
-sensor.printer_toner_black:
-  friendly_name: Printer Toner
-  extra_data_template: >-
-    var e = 'sensor.printer_toner_remain';
-    return entities[e] !== undefined && entities[e].state != 'unknown'
-    ? Math.round(parseFloat(entities[e].state)) + ' ' +
-      entities[e].attributes['unit_of_measurement'] + ' remaining'
-    : null;
+# sensor.printer_drum_black:
+#   friendly_name: Printer Drum
+#   extra_data_template: >-
+#     var e = 'sensor.printer_drum_remain';
+#     return entities[e] !== undefined && entities[e].state != 'unknown'
+#     ? Math.round(parseFloat(entities[e].state)) + ' ' +
+#       entities[e].attributes['unit_of_measurement'] + ' remaining'
+#     : null;
+# sensor.printer_toner_black:
+#   friendly_name: Printer Toner
+#   extra_data_template: >-
+#     var e = 'sensor.printer_toner_remain';
+#     return entities[e] !== undefined && entities[e].state != 'unknown'
+#     ? Math.round(parseFloat(entities[e].state)) + ' ' +
+#       entities[e].attributes['unit_of_measurement'] + ' remaining'
+#     : null;
 sensor.smoke_status:
   templates:
     theme: >-
@@ -642,39 +642,39 @@ sensor.washroom_temperature:
       friendly_name: Temperature
     group.temperature:
       icon: mdi:shower
-sensor.radon_detector_humidity:
-  icon: mdi:water-percent
-  group:
-    group.humidity:
-      friendly_name: Radon Detector
-      icon: mdi:radioactive
-  templates:
-    theme: >-
-      var v = parseInt(state);
-      return v > 55 || v < 30 ? 'card-critical'
-      : v > 50 || v < 35 ? 'card-warning'
-      : null;
-sensor.radon_detector_temperature:
-  icon: mdi:thermometer
-  group:
-    group.temperature:
-      friendly_name: Radon Detector
-      icon: mdi:radioactive
-sensor.radon_friendly:
-  extra_badge:
-    entity_id: sensor.radon_daily
-  extra_data_template: >-
-    var e = 'sensor.radon_long_term';
-    return entities[e] !== undefined && entities[e].state != 'unknown'
-    ? 'Long Term: ' + entities[e].state
-    : null;
-  templates:
-    theme: >-
-      var e = 'sensor.radon_daily',
-          v = entities[e] !== undefined && parseInt(entities[e].state);
-      return v >= 200 ? 'card-critical'
-      : v >= 100 ? 'card-warning'
-      : null;
+# sensor.radon_detector_humidity:
+#   icon: mdi:water-percent
+#   group:
+#     group.humidity:
+#       friendly_name: Radon Detector
+#       icon: mdi:radioactive
+#   templates:
+#     theme: >-
+#       var v = parseInt(state);
+#       return v > 55 || v < 30 ? 'card-critical'
+#       : v > 50 || v < 35 ? 'card-warning'
+#       : null;
+# sensor.radon_detector_temperature:
+#   icon: mdi:thermometer
+#   group:
+#     group.temperature:
+#       friendly_name: Radon Detector
+#       icon: mdi:radioactive
+# sensor.radon_friendly:
+#   extra_badge:
+#     entity_id: sensor.radon_daily
+#   extra_data_template: >-
+#     var e = 'sensor.radon_long_term';
+#     return entities[e] !== undefined && entities[e].state != 'unknown'
+#     ? 'Long Term: ' + entities[e].state
+#     : null;
+#   templates:
+#     theme: >-
+#       var e = 'sensor.radon_daily',
+#           v = entities[e] !== undefined && parseInt(entities[e].state);
+#       return v >= 200 ? 'card-critical'
+#       : v >= 100 ? 'card-warning'
+#       : null;
 
 
 #

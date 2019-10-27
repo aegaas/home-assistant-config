@@ -22,3 +22,5 @@
 - platform: switch
   name: Window
   entity_id: switch.window_light
+
+- platform: ring

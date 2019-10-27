@@ -201,57 +201,6 @@ outdoor_safety:
     title2_style: "top:35px;"
 
 
-#
-# Public Transit
-#
-to_metro:
-    widget_type: sensor
-    title: Bus to Metro
-    entity: sensor.home_to_metro_countdown
-    sub_entity: sensor.home_to_metro_hour
-    value_style: "color:orange;"
-    text_style: "color:orange;font-size:250%;"
-    state_text_style: "background-color:#555;"
-
-to_metro_2:
-    widget_type: sensor
-    title2: Next
-    entity: sensor.home_to_metro_2_countdown
-    sub_entity: sensor.home_to_metro_2_hour
-    text_style: "color:#00aaff;font-size:250%;"
-    state_text_style: "background-color:#555;"
-
-to_metro_3:
-    widget_type: sensor
-    title2: After
-    entity: sensor.home_to_metro_3_countdown
-    sub_entity: sensor.home_to_metro_3_hour
-    text_style: "color:#00aaff;font-size:250%;"
-    state_text_style: "background-color:#555;"
-
-to_market:
-    widget_type: sensor
-    title: Bus to Market
-    entity: sensor.home_to_market_countdown
-    sub_entity: sensor.home_to_market_hour
-    value_style: "color:orange;"
-    text_style: "color:orange;font-size:250%;"
-    state_text_style: "background-color:#555;"
-
-to_market_2:
-    widget_type: sensor
-    title2: Next
-    entity: sensor.home_to_market_2_countdown
-    sub_entity: sensor.home_to_market_2_hour
-    text_style: "color:#00aaff;font-size:250%;"
-    state_text_style: "background-color:#555;"
-to_market_3:
-    widget_type: sensor
-    title2: After
-    entity: sensor.home_to_market_3_countdown
-    sub_entity: sensor.home_to_market_3_hour
-    text_style: "color:#00aaff;font-size:250%;"
-    state_text_style: "background-color:#555;"
 
 
 #
@@ -262,6 +211,6 @@ layout:
     - nav_main,         label(6x1), reload, temperature, clock
     - nav_switchboard,  slideshow(6x4), wind, temperature_now, weather_icon_now
     - nav_weather,      outdoor_safety, daily_forecast(2x1)
-    - nav_spacer(1x2),  spacer, to_metro, to_market
-    -                   spacer, to_metro_2, to_market_2
-    - nav_status,       good_morning, night_mode, nap_mode, scene, quiet_mode, low_power_mode, spacer, to_metro_3, to_market_3
+    - nav_spacer(1x2),  spacer, spacer, spacer
+    -                   spacer, spacer, spacer
+    - nav_status,       good_morning, night_mode, nap_mode, scene, quiet_mode, low_power_mode, spacer, spacer, spacer

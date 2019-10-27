@@ -81,81 +81,81 @@
 #
 # @link https://www.home-assistant.io/components/sensor.syncthru/
 #
-- platform: syncthru
-  resource: !secret syncthru_resource
-  name: Printer
-  monitored_conditions:
-    - drum_black
-    - toner_black
+# - platform: syncthru
+#   resource: !secret syncthru_resource
+#   name: Printer
+#   monitored_conditions:
+#     - drum_black
+#     - toner_black
 
-- platform: template
-  sensors:
-    printer_drum_capacity:
-      friendly_name: Drum Capacity
-      icon_template: mdi:printer
-      unit_of_measurement: 'pages'
-      value_template: !secret printer_drum_capacity
+# - platform: template
+#   sensors:
+#     printer_drum_capacity:
+#       friendly_name: Drum Capacity
+#       icon_template: mdi:printer
+#       unit_of_measurement: 'pages'
+#       value_template: !secret printer_drum_capacity
 
-    printer_drum_remain:
-      friendly_name: Drum Remaining
-      icon_template: mdi:printer
-      unit_of_measurement: 'pages'
-      value_template: >-
-        {% set capacity = states('sensor.printer_drum_capacity') | int(-1) %}
-        {% set drum = states('sensor.printer_drum_black') | int(-1) %}
+#     printer_drum_remain:
+#       friendly_name: Drum Remaining
+#       icon_template: mdi:printer
+#       unit_of_measurement: 'pages'
+#       value_template: >-
+#         {% set capacity = states('sensor.printer_drum_capacity') | int(-1) %}
+#         {% set drum = states('sensor.printer_drum_black') | int(-1) %}
 
-        {% if capacity > 0 and drum >= 0 %}
-          {{ (capacity * drum / 100) | round }}
-        {% else %}
-          unknown
-        {% endif %}
+#         {% if capacity > 0 and drum >= 0 %}
+#           {{ (capacity * drum / 100) | round }}
+#         {% else %}
+#           unknown
+#         {% endif %}
 
-    printer_drum_use:
-      friendly_name: Drum Use
-      icon_template: mdi:printer
-      unit_of_measurement: 'pages'
-      value_template: >-
-        {% set capacity = states('sensor.printer_drum_capacity') | int(-1) %}
-        {% set drum = states('sensor.printer_drum_black') | int(-1) %}
+#     printer_drum_use:
+#       friendly_name: Drum Use
+#       icon_template: mdi:printer
+#       unit_of_measurement: 'pages'
+#       value_template: >-
+#         {% set capacity = states('sensor.printer_drum_capacity') | int(-1) %}
+#         {% set drum = states('sensor.printer_drum_black') | int(-1) %}
 
-        {% if capacity > 0 and drum >= 0 %}
-          {{ (capacity * (100 - drum) / 100) | round }}
-        {% else %}
-          unknown
-        {% endif %}
+#         {% if capacity > 0 and drum >= 0 %}
+#           {{ (capacity * (100 - drum) / 100) | round }}
+#         {% else %}
+#           unknown
+#         {% endif %}
 
-    printer_toner_capacity:
-      friendly_name: Toner Capacity
-      icon_template: mdi:printer
-      unit_of_measurement: 'pages'
-      value_template: !secret printer_toner_capacity
+#     printer_toner_capacity:
+#       friendly_name: Toner Capacity
+#       icon_template: mdi:printer
+#       unit_of_measurement: 'pages'
+#       value_template: !secret printer_toner_capacity
 
-    printer_toner_remain:
-      friendly_name: Toner Remaining
-      icon_template: mdi:printer
-      unit_of_measurement: 'pages'
-      value_template: >-
-        {% set capacity = states('sensor.printer_toner_capacity') | int(-1) %}
-        {% set toner = state_attr('sensor.printer_toner_black', 'cnt') | int(-1) %}
+#     printer_toner_remain:
+#       friendly_name: Toner Remaining
+#       icon_template: mdi:printer
+#       unit_of_measurement: 'pages'
+#       value_template: >-
+#         {% set capacity = states('sensor.printer_toner_capacity') | int(-1) %}
+#         {% set toner = state_attr('sensor.printer_toner_black', 'cnt') | int(-1) %}
 
-        {% if capacity > 0 and toner >= 0 %}
-          {{ capacity - toner }}
-        {% else %}
-          unknown
-        {% endif %}
+#         {% if capacity > 0 and toner >= 0 %}
+#           {{ capacity - toner }}
+#         {% else %}
+#           unknown
+#         {% endif %}
 
-    printer_toner_use:
-      friendly_name: Toner Use
-      icon_template: mdi:printer
-      unit_of_measurement: 'pages'
-      value_template: >-
-        {% set toner = state_attr('sensor.printer_toner_black', 'cnt') | int(-1) %}
+#     printer_toner_use:
+#       friendly_name: Toner Use
+#       icon_template: mdi:printer
+#       unit_of_measurement: 'pages'
+#       value_template: >-
+#         {% set toner = state_attr('sensor.printer_toner_black', 'cnt') | int(-1) %}
 
-        {% if toner >= 0 %}
-          {{ toner }}
-        {% else %}
-          unknown
-        {% endif %}
+#         {% if toner >= 0 %}
+#           {{ toner }}
+#         {% else %}
+#           unknown
+#         {% endif %}
 
 
 #

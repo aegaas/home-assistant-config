@@ -8,8 +8,8 @@ reload:
 
 temperature:
     widget_type: multisensor
-    entity: sensor.average_temperature
-    entity2: sensor.average_humidity
+    entity: sensor.dark_sky_apparent_temperature
+    entity2: sensor.dark_sky_humidity
     widget_style: "background: DARKSLATEBLUE;"
     value_style: "margin-top:-8px;font-size:225%;"
     unit_style: "margin-top:-3px;"
@@ -18,5 +18,5 @@ temperature:
 
 clock:
     widget_type: clock
-    time_format: 24hr
+    time_format: 12hr
     widget_style: "background: DARKSLATEBLUE;"

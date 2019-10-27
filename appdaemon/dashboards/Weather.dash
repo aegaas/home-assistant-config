@@ -143,7 +143,7 @@ weekly_forecast:
 temperature_today:
     widget_type: entitysensor
     title: Today
-    entity: sensor.dark_sky_daytime_high_temperature_0
+    entity: sensor.dark_sky_daytime_high_temperature_0d
     sub_entity: sensor.weather_low_friendly
     title2_entity: sensor.feels_like
     widget_style: "background-color:inherit;"
@@ -154,7 +154,7 @@ temperature_today:
 temperature_tomorrow:
     widget_type: entitysensor
     title: Tomorrow
-    entity: sensor.dark_sky_daytime_high_temperature_1
+    entity: sensor.dark_sky_daytime_high_temperature_1d
     sub_entity: sensor.weather_low_1_friendly
     title2_entity: sensor.feels_like_1
     widget_style: "background-color:inherit;"
@@ -165,7 +165,7 @@ temperature_tomorrow:
 temperature_after_tomorrow:
     widget_type: entitysensor
     title: After Tomorrow
-    entity: sensor.dark_sky_daytime_high_temperature_2
+    entity: sensor.dark_sky_daytime_high_temperature_2d
     sub_entity: sensor.weather_low_2_friendly
     title_entity: sensor.after_tomorrow
     title2_entity: sensor.feels_like_2
@@ -357,5 +357,5 @@ layout:
     - nav_switchboard,  camera_noaa(3x3), camera_environment_canada(3x3), wind, daily_forecast(2x1)
     - nav_weather,      wind_icon, weekly_forecast(2x1)
     - nav_spacer(1x2),  spacer, temperature_today, weather_icon_today
-    -                   aqi, uv, sensor.doomsday_clock, spacer(4x1), temperature_tomorrow, weather_icon_tomorrow
+    -                   aqi, uv, spacer(4x1), temperature_tomorrow, weather_icon_tomorrow
     - nav_status,       aqi_particles, aqi_ozone, aqi_carbon_monoxide, aqi_nitrogen_dioxide, aqi_sulphur_dioxide, spacer(2x1), temperature_after_tomorrow, weather_icon_after_tomorrow

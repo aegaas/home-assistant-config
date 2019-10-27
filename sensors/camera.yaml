@@ -64,7 +64,7 @@
   json_attributes:
     - copyright
     - date
-    - explaination
+    - explanation
     - hdurl
     - media_type
     - title
@@ -89,3 +89,5 @@
     environment_canada_radar:
       friendly_name: Environment Canada Radar
       value_template: !secret environment_canada_radar
+
+- platform: ring

@@ -80,3 +80,9 @@
         - sensor.siren_monitor_smoke
       value_template: >-
         {{ is_state('sensor.siren_monitor_smoke', '2') }}
+
+# @see /sensors/ring.yaml
+- platform: ring
+
+- platform: google_wifi
+  host: 192.168.0.1
