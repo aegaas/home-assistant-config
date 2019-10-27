@@ -108,12 +108,9 @@
     motion_location:
       value_template: >-
         {% set entities = [
-            states.binary_sensor.bedroom_motion,
-            states.binary_sensor.front_door,
-            states.binary_sensor.kiosk_motion_auto,
-            states.binary_sensor.lounge_motion,
-            states.binary_sensor.washroom_motion,
-            states.input_boolean.motion_test,
+            states.binary_sensor.ring_basement_door_motion,
+            states.binary_sensor.ring_front_door_motion,
+            states.binary_sensor.ring_uphill_side_motion,
           ]
         %}
         {% set value = entities | selectattr('state', 'equalto', 'on')
@@ -149,86 +146,3 @@
           Clear
         {% endif %}
 
-
-#
-# Smoke detection status
-#
-# @see /automations/notifications/siren_notify.yaml
-# @see /misc/binary_sensors.yaml
-#
-# @link https://discoverecolink.com/product/firefighter-wireless-smoke-co-audio-sensor/
-#
-- platform: template
-  sensors:
-    smoke_location:
-      value_template: >-
-        {% set entities = [
-            states.binary_sensor.siren_monitor_smoke,
-            states.input_boolean.smoke_test,
-          ]
-        %}
-        {% set value = entities | selectattr('state', 'equalto', 'on')
-                                | map(attribute='name')
-                                | join(',') %}
-        {% set value = value | replace(" Multisensor", null) %}
-        {% set value = value | replace(" Sensor", null) %}
-        {% set value = value | replace(",", ", ") %}
-
-        {{ value }}
-
-    smoke_status:
-      friendly_name: Smoke
-      friendly_name_template: >-
-        {% if is_state('group.smoke_sensors', 'on') %}
-          Smoke detected
-        {% else %}
-          Smoke
-        {% endif %}
-      icon_template: >-
-        {% if is_state('group.smoke_sensors', 'on') %}
-          mdi:alarm-bell
-        {% else %}
-          mdi:smoke-detector
-        {% endif %}
-      value_template: >-
-        {% set value = states('sensor.smoke_location') %}
-
-        {% if value != '' %}
-          {{ value }}
-        {% else %}
-          Clear
-        {% endif %}
-
-
-#
-# Tampering status
-#
-# Returns a comma-separated list of perimeter devices being tampered with.
-#
-# @see /automations/modes/tamper_start.yaml
-# @see /misc/variables.yaml
-#
-- platform: template
-  sensors:
-    tamper_status:
-      friendly_name: Tampering
-      friendly_name_template: >-
-        {% if is_state('input_boolean.tamper_detected', 'on') %}
-          Tampering detected
-        {% else %}
-          Tampering
-        {% endif %}
-      icon_template: >-
-        {% if is_state('input_boolean.tamper_detected', 'on') %}
-          mdi:home-alert
-        {% else %}
-          mdi:security-home
-        {% endif %}
-      value_template: >-
-        {% set dummy = is_state('input_boolean.tamper_detected', 'on') %}
-
-        {% if not is_state('variable.tamper_detected', 'False') %}
-          {{ states('variable.tamper_detected') }}
-        {% else %}
-          Clear
-        {% endif %}

@@ -90,7 +90,12 @@ discovery:
   ignore:
     - google_cast
     - samsung_printer
-
+  enable:
+    - homekit
+    - plex
+    - philips_hue
+    - apple_tv
+    - harmony
 
 #
 # Displays

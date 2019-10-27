@@ -33,8 +33,6 @@ automations:
   name: Automations
   control: hidden
   entities:
-    - automation.cct_lifx
-    - automation.cct_limitlessled
     - automation.homekit_start
     - automation.scene_daylight
     - automation.scene_gaming
@@ -43,52 +41,10 @@ automations:
     - automation.theme_auto
     - automation.wake_up
 
-automations_areas:
-  name: Areas Automations
-  control: hidden
-  entities:
-    - automation.bedroom_low_power
-    - automation.bedroom_off
-    - automation.bedroom_on
-    - automation.ceiling_effect
-    - automation.ceiling_low_power
-    - automation.ceiling_off
-    - automation.ceiling_on
-    - automation.ceiling_schedule
-    - automation.ceiling_select
-    - automation.kitchen_low_power
-    - automation.kitchen_off
-    - automation.kitchen_on
-    - automation.lounge_low_power
-    - automation.lounge_off
-    - automation.lounge_on
-    - automation.washroom_low_power
-    - automation.washroom_off
-    - automation.washroom_on
-
 automations_devices:
   name: Devices Automations
   control: hidden
   entities:
-    - automation.aurora_brightness
-    - automation.aurora_effect
-    - automation.aurora_schedule
-    - automation.aurora_select
-    - automation.bed_effect
-    - automation.bed_schedule
-    - automation.bed_select
-    - automation.dehumidifier_off
-    - automation.dehumidifier_on
-    - automation.kitchen_lights_full
-    - automation.kitchen_lights_init
-    - automation.kitchen_lights_off
-    - automation.kitchen_lights_on
-    - automation.kitchen_lights_toggle
-    - automation.kiosk_auto
-    - automation.kiosk_low_power
-    - automation.lightpack_auto
-    - automation.lightpack_effect
-    - automation.lightpack_select
     - automation.nightlight_off
     - automation.nightlight_on
     - automation.scene_effect
@@ -109,8 +65,6 @@ automations_modes:
     - automation.night_mode_stop
     - automation.quiet_mode_start
     - automation.quiet_mode_stop
-    - automation.tamper_detection_start
-    - automation.tamper_detection_stop
 
 automations_notifications:
   name: Notifications Automations
@@ -120,14 +74,7 @@ automations_notifications:
     - automation.door_notify
     - automation.door_notify_reset
     - automation.front_door_notify
-    - automation.humidity_notify
-    - automation.humidor_notify
-    - automation.humidor_notify_reset
     - automation.power_supply_notify
-    - automation.radon_notify
-    - automation.radon_notify_reset
-    - automation.smoke_notify
-    - automation.tamper_detection_notify
     - automation.update_notify
 
 configuration:
@@ -136,19 +83,5 @@ configuration:
   entities:
     - input_boolean.door_test
     - sensor.door_status
-    - input_boolean.leak_test
-    - sensor.leak_status
     - input_boolean.motion_test
     - sensor.motion_status
-    - input_boolean.smoke_test
-    - sensor.smoke_status
-    - input_boolean.tamper_detected
-    - variable.tamper_detected
-    - script.tamper_reset
-    - switch.aeotec_zstick_disco_light
-
-counters:
-  name: Counters
-  control: hidden
-  entities:
-    - counter.humidor_notify

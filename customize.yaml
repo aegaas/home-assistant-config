@@ -1,8 +1,6 @@
 #
 # Automations
 #
-automation.daily_greeting:
-  icon: mdi:human-greeting
 automation.door_notify:
   extra_data_template:
   - >-
@@ -24,52 +22,12 @@ automation.door_notify:
     )+" ago";
 automation.humidity_notify:
   icon: mdi:water-percent
-automation.humidor_notify:
-  extra_data_template:
-  - >-
-    var e = 'counter.humidor_notify';
-    if (entities[e] === undefined || entities[e].state === 'unknown') return null;
-    var max = entities[e].attributes['initial'],
-        left = entities[e].state,
-        name = entities[e].attributes['friendly_name'];
-    if (left == max) return null;
-    return max - left + '/' + max + ' ' + name.toLowerCase() + ' sent.'
-  - >-
-    if(!attributes.last_triggered)return null;
-    var t,s=(new Date()-new Date(attributes.last_triggered))/1e3;
-    return(
-    (t=Math.floor(s/86400))?t+(t>1?" days":" day"):
-    (t=Math.floor(s/3600))?t+(t>1?" hours":" hour"):
-    (t=Math.floor(s/60))?t+(t>1?" minutes":" minute"):
-    (t=Math.floor(s))!==1?t+" seconds":" second"
-    )+" ago";
 automation.front_door_notify:
   icon: mdi:door-open
 automation.go_to_sleep:
   icon: mdi:weather-night
 automation.theme_auto:
   icon: mdi:theme-light-dark
-automation.power_supply_notify:
-  icon: mdi:flash-circle
-automation.radon_notify:
-  extra_data_template:
-  - >-
-    var e = 'counter.radon_notify';
-    if (entities[e] === undefined || entities[e].state === 'unknown') return null;
-    var max = entities[e].attributes['initial'],
-        left = entities[e].state,
-        name = entities[e].attributes['friendly_name'];
-    if (left == max) return null;
-    return max - left + '/' + max + ' ' + name.toLowerCase() + ' sent.'
-  - >-
-    if(!attributes.last_triggered)return null;
-    var t,s=(new Date()-new Date(attributes.last_triggered))/1e3;
-    return(
-    (t=Math.floor(s/86400))?t+(t>1?" days":" day"):
-    (t=Math.floor(s/3600))?t+(t>1?" hours":" hour"):
-    (t=Math.floor(s/60))?t+(t>1?" minutes":" minute"):
-    (t=Math.floor(s))!==1?t+" seconds":" second"
-    )+" ago";
 automation.scene_daylight:
   icon: mdi:weather-sunny
 automation.scene_gaming:
@@ -156,255 +114,6 @@ group.switchboard_view:
 group.weather_view:
   order: 3
 
-
-#
-# Input booleans
-#
-input_boolean.door_test:
-  confirm_controls_show_lock: true
-input_boolean.leak_test:
-  confirm_controls_show_lock: true
-input_boolean.motion_test:
-  confirm_controls_show_lock: true
-input_boolean.smoke_test:
-  confirm_controls_show_lock: true
-input_boolean.tamper_detected:
-  confirm_controls_show_lock: true
-  templates:
-    theme: >-
-      return state == 'on'
-      ? 'card-critical'
-      : null;
-
-
-#
-# Input selectors
-#
-input_select.aurora_effect:
-  icon: mdi:blank
-input_select.bed_effect:
-  friendly_name: Bed Effect
-  icon: mdi:blank
-input_select.ceiling_effect:
-  friendly_name: Effect
-  icon: mdi:blank
-input_select.lightpack_effect:
-  icon: mdi:blank
-
-
-#
-# Lights
-#
-light.aurora:
-  extra_data_template: >-
-    return (attributes.brightness)
-    ? attributes.effect + ' @ ' + Math.round(attributes.brightness / 255 * 100) + '%'
-    : null;
-  icon: mdi:vector-triangle
-  slider_theme:
-    max: 255
-    min: 0
-    off_when_min: true
-    pin: true
-    report_when_not_changed: false
-  state_card_mode: break-slider
-light.bedroom:
-  extra_data_template: >-
-    var e = 'sensor.ceiling_effect_loaded',
-        v = entities[e] !== undefined && entities[e].state != 'unknown' && entities[e].state;
-    return state === 'on' && v
-    ? v
-    : null;
-  icon: mdi:led-strip
-  slider_theme:
-    max: 255
-    min: 0
-    off_when_min: true
-    pin: true
-    report_when_not_changed: false
-light.bedside:
-  icon: mdi:creation
-light.countertop:
-  extra_data_template: >-
-    return (attributes.brightness)
-    ? Math.round(1000000 / attributes.color_temp / 50) * 50 + ' K @ ' +
-      Math.round(attributes.brightness / 255 * 100) + '%'
-    : null;
-  icon: mdi:border-top
-  assumed_state: false
-  slider_theme:
-    max: 255
-    min: 0
-    off_when_min: true
-    pin: true
-    report_when_not_changed: false
-light.island:
-  extra_data_template: >-
-    return (attributes.brightness)
-    ? Math.round(1000000 / attributes.color_temp / 50) * 50 + ' K @ ' +
-      Math.round(attributes.brightness / 255 * 100) + '%'
-    : null;
-  icon: mdi:table-column
-  assumed_state: false
-  slider_theme:
-    max: 255
-    min: 0
-    off_when_min: true
-    pin: true
-    report_when_not_changed: false
-light.headboard:
-  extra_data_template: >-
-    var e = 'sensor.bed_effect_loaded',
-        v = entities[e] !== undefined && entities[e].state != 'unknown' && entities[e].state;
-    return state === 'on' && v
-    ? v
-    : null;
-  icon: mdi:gate
-  slider_theme:
-    max: 255
-    min: 0
-    off_when_min: true
-    pin: true
-    report_when_not_changed: false
-light.lightpack:
-  extra_data_template: >-
-    var e = 'sensor.lightpack_effect_loaded',
-        v = entities[e] !== undefined && entities[e].state != 'unknown'
-            && entities[e].state != 'False' && entities[e].state;
-    return state === 'on' && v
-    ? v
-    : null;
-  icon: mdi:television
-light.lounge:
-  extra_data_template: >-
-    var e = 'sensor.ceiling_effect_loaded',
-        v = entities[e] !== undefined && entities[e].state != 'unknown' && entities[e].state;
-    return state === 'on' && v
-    ? v
-    : null;
-  icon: mdi:led-strip
-  slider_theme:
-    max: 255
-    min: 0
-    off_when_min: true
-    pin: true
-    report_when_not_changed: false
-light.microwave:
-  extra_data_template: >-
-    return (attributes.brightness)
-    ? Math.round(1000000 / attributes.color_temp / 50) * 50 + ' K @ ' +
-      Math.round(attributes.brightness / 255 * 100) + '%'
-    : null;
-  icon: mdi:gradient
-  assumed_state: false
-  slider_theme:
-    max: 255
-    min: 0
-    off_when_min: true
-    pin: true
-    report_when_not_changed: false
-light.middle:
-  extra_data_template: >-
-    var e = 'sensor.ceiling_effect_loaded',
-        v = entities[e] !== undefined && entities[e].state != 'unknown' && entities[e].state;
-    return state === 'on' && v
-    ? v
-    : null;
-  icon: mdi:led-strip
-  slider_theme:
-    max: 255
-    min: 0
-    off_when_min: true
-    pin: true
-    report_when_not_changed: false
-light.nightstand:
-  icon: mdi:page-layout-body
-light.shower:
-  extra_data_template: >-
-    if(!attributes.brightness)return null;
-    var t;
-    if (attributes.color_temp) {
-      t = 50 * Math.round(1e6/attributes.color_temp/50) + ' K @ '
-    }
-    else if (attributes.hs_color) {
-      t = parseInt(attributes.hs_color[0]);
-      t>344||t<15? t='Red'  : t>327? t='Rose'
-      : t>291? t='Magenta'  : t>270? t='Purple'
-      : t>260? t='Violet'   : t>240? t='Indigo'
-      : t>193? t='Blue'     : t>163? t='Cyan'
-      : t>79?  t='Green'    : t>70?  t='Lime'
-      : t>45?  t='Yellow'   : t>14 && (t='Orange');
-      t = t + ' @ ';
-    }
-    return t + Math.round(attributes.brightness/255*100) + '%';
-  icon: mdi:spotlight
-  slider_theme:
-    max: 255
-    min: 0
-    off_when_min: true
-    pin: true
-    report_when_not_changed: false
-  state_card_mode: break-slider
-light.sink:
-  extra_data_template: >-
-    return (attributes.brightness)
-    ? Math.round(1000000 / attributes.color_temp / 50) * 50 + ' K @ ' +
-      Math.round(attributes.brightness / 255 * 100) + '%'
-    : null;
-  icon: mdi:water-pump
-  assumed_state: false
-  slider_theme:
-    max: 255
-    min: 0
-    off_when_min: true
-    pin: true
-    report_when_not_changed: false
-light.spotlight:
-  extra_data_template: >-
-    if(!attributes.brightness)return null;
-    var t;
-    if (attributes.color_temp) {
-      t = 50 * Math.round(1e6/attributes.color_temp/50) + ' K @ '
-    }
-    else if (attributes.hs_color) {
-      t = parseInt(attributes.hs_color[0]);
-      t>344||t<15? t='Red'  : t>327? t='Rose'
-      : t>291? t='Magenta'  : t>270? t='Purple'
-      : t>260? t='Violet'   : t>240? t='Indigo'
-      : t>193? t='Blue'     : t>163? t='Cyan'
-      : t>79?  t='Green'    : t>70?  t='Lime'
-      : t>45?  t='Yellow'   : t>14 && (t='Orange');
-      t = t + ' @ ';
-    }
-    return t + Math.round(attributes.brightness/255*100) + '%';
-  icon: mdi:spotlight-beam
-  slider_theme:
-    max: 255
-    min: 0
-    off_when_min: true
-    pin: true
-    report_when_not_changed: false
-  state_card_mode: break-slider
-light.souvenirs:
-  icon: mdi:trophy
-light.underbed:
-  extra_data_template: >-
-    var e = 'sensor.bed_effect_loaded',
-        v = entities[e] !== undefined && entities[e].state != 'unknown' && entities[e].state;
-    return state === 'on' && v
-    ? v
-    : null;
-  icon: mdi:hotel
-  slider_theme:
-    max: 255
-    min: 0
-    off_when_min: true
-    pin: true
-    report_when_not_changed: false
-light.window:
-  icon: mdi:creation
-
-
 #
 # Sensors: Miscellaneous
 #
@@ -417,198 +126,11 @@ sensor.door_status:
       : null;
 sensor.good_vibes:
   custom_ui_state_card: state-card-value_only
-sensor.leak_status:
-  templates:
-    theme: >-
-      return state != 'Clear' ? 'card-critical'
-      : null;
 sensor.motion_status:
   templates:
     theme: >-
       return state != 'Clear' ? 'card-warning'
       : null;
-# sensor.printer_drum_black:
-#   friendly_name: Printer Drum
-#   extra_data_template: >-
-#     var e = 'sensor.printer_drum_remain';
-#     return entities[e] !== undefined && entities[e].state != 'unknown'
-#     ? Math.round(parseFloat(entities[e].state)) + ' ' +
-#       entities[e].attributes['unit_of_measurement'] + ' remaining'
-#     : null;
-# sensor.printer_toner_black:
-#   friendly_name: Printer Toner
-#   extra_data_template: >-
-#     var e = 'sensor.printer_toner_remain';
-#     return entities[e] !== undefined && entities[e].state != 'unknown'
-#     ? Math.round(parseFloat(entities[e].state)) + ' ' +
-#       entities[e].attributes['unit_of_measurement'] + ' remaining'
-#     : null;
-sensor.smoke_status:
-  templates:
-    theme: >-
-      return state != 'Clear' ? 'card-critical'
-      : null;
-sensor.tamper_status:
-  templates:
-    theme: >-
-      var e = 'input_boolean.tamper_detected';
-      return state != 'Clear' && entities[e] !== undefined
-      ? entities[e].state == 'on' ? 'card-critical'
-      : 'card-warning'
-      : null;
-
-
-#
-# Sensors: Climate
-#
-sensor.average_humidity:
-  friendly_name: Average
-sensor.average_humidity_friendly:
-  extra_badge:
-    entity_id: sensor.average_humidity
-  templates:
-    theme: >-
-      var e = 'sensor.average_humidity',
-          v = entities[e] !== undefined && parseInt(entities[e].state);
-      return v > 55 || v < 30 ? 'card-critical'
-      : v > 50 || v < 35 ? 'card-warning'
-      : null;
-sensor.average_temperature:
-  friendly_name: Average
-sensor.bedroom_humidity:
-  friendly_name: Bedroom
-  icon: mdi:water-percent
-  group:
-    group.bedroom:
-      friendly_name: Humidity
-    group.humidity:
-      icon: mdi:hotel
-      extra_data_template: "Tracked"
-sensor.bedroom_luminance:
-  friendly_name: Bedroom
-sensor.bedroom_luminance_friendly:
-  extra_badge:
-    entity_id: sensor.bedroom_luminance
-sensor.bedroom_temperature:
-  friendly_name: Bedroom
-  icon: mdi:thermometer
-  group:
-    group.bedroom:
-      friendly_name: Temperature
-    group.temperature:
-      icon: mdi:hotel
-      extra_data_template: "Tracked"
-sensor.humidor_humidity:
-  friendly_name: Humidor
-  icon: mdi:water-percent
-  group:
-    group.humidity:
-      icon: mdi:bow-tie
-  templates:
-    theme: >-
-      var v = parseInt(state);
-      return v > 80 || v < 60 ? 'card-critical'
-      : v >= 74 || v <= 65 ? 'card-warning'
-      : null;
-sensor.humidor_temperature:
-  friendly_name: Humidor
-  icon: mdi:thermometer
-  group:
-    group.temperature:
-      icon: mdi:bow-tie
-sensor.kitchen_humidity:
-  friendly_name: Kitchen
-  icon: mdi:water-percent
-  group:
-    group.kitchen:
-      friendly_name: Humidity
-    group.humidity:
-      icon: mdi:food-fork-drink
-sensor.kitchen_temperature:
-  friendly_name: Kitchen
-  icon: mdi:thermometer
-  group:
-    group.kitchen:
-      friendly_name: Temperature
-    group.temperature:
-      icon: mdi:food-fork-drink
-sensor.lounge_humidity:
-  friendly_name: Lounge
-  icon: mdi:water-percent
-  group:
-    group.lounge:
-      friendly_name: Humidity
-    group.humidity:
-      icon: mdi:sofa
-      extra_data_template: "Tracked"
-sensor.lounge_luminance:
-  friendly_name: Lounge
-sensor.lounge_luminance_friendly:
-  extra_badge:
-    entity_id: sensor.lounge_luminance
-sensor.lounge_temperature:
-  friendly_name: Lounge
-  icon: mdi:thermometer
-  group:
-    group.lounge:
-      friendly_name: Temperature
-    group.temperature:
-      icon: mdi:sofa
-      extra_data_template: "Tracked"
-sensor.washroom_humidity:
-  friendly_name: Washroom
-  icon: mdi:water-percent
-  group:
-    group.washroom:
-      friendly_name: Humidity
-    group.humidity:
-      icon: mdi:shower
-sensor.washroom_luminance:
-  friendly_name: Washroom
-sensor.washroom_luminance_friendly:
-  extra_badge:
-    entity_id: sensor.washroom_luminance
-sensor.washroom_temperature:
-  friendly_name: Washroom
-  icon: mdi:thermometer
-  group:
-    group.washroom:
-      friendly_name: Temperature
-    group.temperature:
-      icon: mdi:shower
-# sensor.radon_detector_humidity:
-#   icon: mdi:water-percent
-#   group:
-#     group.humidity:
-#       friendly_name: Radon Detector
-#       icon: mdi:radioactive
-#   templates:
-#     theme: >-
-#       var v = parseInt(state);
-#       return v > 55 || v < 30 ? 'card-critical'
-#       : v > 50 || v < 35 ? 'card-warning'
-#       : null;
-# sensor.radon_detector_temperature:
-#   icon: mdi:thermometer
-#   group:
-#     group.temperature:
-#       friendly_name: Radon Detector
-#       icon: mdi:radioactive
-# sensor.radon_friendly:
-#   extra_badge:
-#     entity_id: sensor.radon_daily
-#   extra_data_template: >-
-#     var e = 'sensor.radon_long_term';
-#     return entities[e] !== undefined && entities[e].state != 'unknown'
-#     ? 'Long Term: ' + entities[e].state
-#     : null;
-#   templates:
-#     theme: >-
-#       var e = 'sensor.radon_daily',
-#           v = entities[e] !== undefined && parseInt(entities[e].state);
-#       return v >= 200 ? 'card-critical'
-#       : v >= 100 ? 'card-warning'
-#       : null;
 
 
 #
@@ -712,13 +234,6 @@ sensor.uv_friendly:
 #
 # Sensors: Power
 #
-sensor.bedroom_multisensor_battery:
-  group:
-    group.battery:
-      friendly_name: Bedroom
-      icon: mdi:hotel
-    group.bedroom:
-      friendly_name: Multisensor Battery
 sensor.front_door_sensor_battery:
   group:
     group.battery:
@@ -726,55 +241,7 @@ sensor.front_door_sensor_battery:
       icon: mdi:door
     group.kitchen:
       friendly_name: Front Door Battery
-sensor.humidor_multisensor_battery:
-  group:
-    group.battery:
-      friendly_name: Humidor
-      icon: mdi:bow-tie
-    group.lounge:
-      friendly_name: Humidor Battery
-sensor.kiosk_battery:
-  group:
-    group.battery:
-      friendly_name: Kiosk
-      icon: mdi:tablet
-    group.kitchen:
-      friendly_name: Kiosk Battery
-sensor.kitchen_leak_sensor_battery:
-  group:
-    group.battery:
-      friendly_name: Kitchen Leak
-      icon: mdi:food-fork-drink
-    group.kitchen:
-      friendly_name: Leak Battery
-sensor.lounge_multisensor_battery:
-  group:
-    group.battery:
-      friendly_name: Lounge
-      icon: mdi:sofa
-    group.lounge:
-      friendly_name: Multisensor Battery
-sensor.siren_monitor_battery:
-  group:
-    group.battery:
-      friendly_name: Siren Monitor
-      icon: mdi:smoke-detector
-    group.kitchen:
-      friendly_name: Siren Monitor Battery
-sensor.washroom_leak_sensor_battery:
-  group:
-    group.battery:
-      friendly_name: Washroom Leak
-      icon: mdi:pipe-leak
-    group.washroom:
-      friendly_name: Leak Battery
-sensor.washroom_multisensor_battery:
-  group:
-    group.battery:
-      friendly_name: Washroom
-      icon: mdi:shower
-    group.lounge:
-      friendly_name: Multisensor Battery
+
 
 
 #
@@ -822,54 +289,6 @@ sensor.speedtest_upload:
   show_last_changed: true
 sensor.uptime_os:
   icon: mdi:pi
-
-
-#
-# Sensors: Transit
-#
-sensor.home_to_market_hour:
-  icon: mdi:cart
-  extra_badge:
-    entity_id: sensor.home_to_market
-  templates:
-    theme: >-
-      var e = 'sensor.home_to_market';
-      if (entities[e] === undefined || entities[e].state === 'unknown') return null;
-      var v = parseInt(entities[e].state);
-      return v <= 5 ? 'card-critical'
-      : v <= 10 ? 'card-warning'
-      : null;
-sensor.home_to_market_2_hour:
-  icon: mdi:blank
-  friendly_name: Next
-  extra_badge:
-    entity_id: sensor.home_to_market_2_countdown
-sensor.home_to_market_3_hour:
-  icon: mdi:blank
-  friendly_name: After
-  extra_badge:
-    entity_id: sensor.home_to_market_3_countdown
-sensor.home_to_metro_hour:
-  extra_badge:
-    entity_id: sensor.home_to_metro
-  templates:
-    theme: >-
-      var e = 'sensor.home_to_metro';
-      if (entities[e] === undefined || entities[e].state === 'unknown') return null;
-      var v = parseInt(entities[e].state);
-      return v <= 5 ? 'card-critical'
-      : v <= 10 ? 'card-warning'
-      : null;
-sensor.home_to_metro_2_hour:
-  icon: mdi:blank
-  friendly_name: Next
-  extra_badge:
-    entity_id: sensor.home_to_metro_2_countdown
-sensor.home_to_metro_3_hour:
-  icon: mdi:blank
-  friendly_name: After
-  extra_badge:
-    entity_id: sensor.home_to_metro_3_countdown
 
 
 #
@@ -926,34 +345,6 @@ script.tamper_reset:
 script.wake_up:
   icon: mdi:weather-sunny
 
-
-#
-# Switches
-#
-switch.aeotec_zstick_disco_light:
-  friendly_name: Z-Stick Light
-switch.bedroom_fan:
-  icon: mdi:fan
-  group:
-    group.bedroom:
-      friendly_name: Fan
-switch.bedside_light:
-  icon: mdi:creation
-switch.dehumidifier:
-  icon: mdi:water-off
-  confirm_controls_show_lock: true
-switch.lounge_tv:
-  group:
-    group.lounge:
-      friendly_name: TV
-switch.nightstand_light:
-  icon: mdi:page-layout-body
-switch.souvenirs_light:
-  icon: mdi:trophy
-switch.window_light:
-  icon: mdi:creation
-
-
 #
 # Updater
 #
@@ -964,18 +355,3 @@ updater.updater:
     return entities[e] !== undefined && entities[e].state != 'unknown'
     ? 'Current version: ' + entities[e].state
     : null;
-
-
-#
-# Variables
-#
-variable.tamper_detected:
-  friendly_name: Tamper location
-  icon: mdi:security-home
-  templates:
-    theme: >-
-      var e = 'input_boolean.tamper_detected';
-      return state != 'False' && entities[e] !== undefined
-      ? entities[e].state == 'on'
-      ? 'card-critical' : 'card-warning'
-      : null;
