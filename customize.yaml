@@ -865,12 +865,6 @@ sensor.disk_use_percent:
     ? Math.round(parseFloat(entities[e].state)) + ' ' +
       entities[e].attributes['unit_of_measurement'] + ' available'
     : null;
-sensor.ebox_download_before_offpeak:
-  friendly_name: Downloads
-sensor.ebox_upload_before_offpeak:
-  friendly_name: Uploads
-sensor.ebox_usage:
-  friendly_name: Monthly usage
 sensor.ipv4_address_eth0:
   friendly_name: Local IP Address
 sensor.memory_use_percent:

@@ -102,7 +102,7 @@ gray_medium: "#666"
 gray_light: "#888"
 
 #Page and widget defaults
-background_style: "background-color: #444"
+background_style: "background-color: transparent"
 text_style: "color: #fff"
 
 #These are used for icons and indicators

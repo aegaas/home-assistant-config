@@ -216,7 +216,7 @@ weather_icon_today:
 
 weather_icon_tomorrow:
     widget_type: iconsensor
-    entity: sensor.dark_sky_icon_1
+    entity: sensor.dark_sky_icon_1d
     icons:
         clear-day:
             icon: mdi-weather-sunny
@@ -256,7 +256,7 @@ weather_icon_tomorrow:
 
 weather_icon_after_tomorrow:
     widget_type: iconsensor
-    entity: sensor.dark_sky_icon_2
+    entity: sensor.dark_sky_icon_2d
     icons:
         clear-day:
             icon: mdi-weather-sunny
@@ -305,48 +305,6 @@ aqi:
     sub_entity: sensor.aqi_friendly
     state_text_style: "background-color:#555;"
 
-aqi_particles:
-    widget_type: sensor
-    title: 2.5PM
-    entity: sensor.aqi_particles
-    sub_entity: sensor.aqi_particles_friendly
-    state_text_style: "background-color:#555;"
-
-aqi_ozone:
-    widget_type: sensor
-    title: Ozone
-    entity: sensor.aqi_ozone
-    sub_entity: sensor.aqi_ozone_friendly
-    state_text_style: "background-color:#555;"
-
-aqi_carbon_monoxide:
-    widget_type: sensor
-    title: Carbon Monoxide
-    entity: sensor.aqi_carbon_monoxide
-    sub_entity: sensor.aqi_carbon_monoxide_friendly
-    state_text_style: "background-color:#555;"
-
-aqi_nitrogen_dioxide:
-    widget_type: sensor
-    title: Nitrogen Dioxide
-    entity: sensor.aqi_nitrogen_dioxide
-    sub_entity: sensor.aqi_nitrogen_dioxide_friendly
-    state_text_style: "background-color:#555;"
-
-aqi_sulphur_dioxide:
-    widget_type: sensor
-    title: Sulphur Dioxide
-    entity: sensor.aqi_sulphur_dioxide
-    sub_entity: sensor.aqi_sulphur_dioxide_friendly
-    state_text_style: "background-color:#555;"
-
-uv:
-    widget_type: sensor
-    title: UV
-    entity: sensor.uv
-    sub_entity: sensor.uv_friendly
-    state_text_style: "background-color:#555;"
-
 
 #
 # Layout
@@ -357,5 +315,5 @@ layout:
     - nav_switchboard,  camera_noaa(3x3), camera_environment_canada(3x3), wind, daily_forecast(2x1)
     - nav_weather,      wind_icon, weekly_forecast(2x1)
     - nav_spacer(1x2),  spacer, temperature_today, weather_icon_today
-    -                   aqi, uv, spacer(4x1), temperature_tomorrow, weather_icon_tomorrow
-    - nav_status,       aqi_particles, aqi_ozone, aqi_carbon_monoxide, aqi_nitrogen_dioxide, aqi_sulphur_dioxide, spacer(2x1), temperature_after_tomorrow, weather_icon_after_tomorrow
+    -                   spacer(6x1), spacer, temperature_tomorrow, weather_icon_tomorrow
+    - nav_status,       spacer(5x1), spacer(2x1), temperature_after_tomorrow, weather_icon_after_tomorrow

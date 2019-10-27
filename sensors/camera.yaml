@@ -57,7 +57,7 @@
 # @link https://apod.nasa.gov
 #
 - platform: rest
-  name: APOD
+  name: apod
   resource: !secret apod_api_url
   icon_template: mdi:star
   scan_interval: 21600

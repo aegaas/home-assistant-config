@@ -189,17 +189,6 @@ wind:
     state_text_style: "background-color:inherit;"
 
 
-#
-# Outdoor quality
-#
-outdoor_safety:
-    widget_type: multisensor
-    title2: "AQI           UV "
-    entity: sensor.aqi
-    entity2: sensor.uv
-    widget_style: "background-color:inherit;"
-    title2_style: "top:35px;"
-
 
 
 
@@ -210,7 +199,7 @@ layout:
     - include: header
     - nav_main,         label(6x1), reload, temperature, clock
     - nav_switchboard,  slideshow(6x4), wind, temperature_now, weather_icon_now
-    - nav_weather,      outdoor_safety, daily_forecast(2x1)
+    - nav_weather,      spacer, daily_forecast(2x1)
     - nav_spacer(1x2),  spacer, spacer, spacer
     -                   spacer, spacer, spacer
     - nav_status,       good_morning, night_mode, nap_mode, scene, quiet_mode, low_power_mode, spacer, spacer, spacer

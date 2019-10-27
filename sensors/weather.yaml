@@ -156,7 +156,7 @@
     precip_probability_1:
       friendly_name: Probability of Precipitation
       value_template: >-
-        {% set precip = states('sensor.dark_sky_precip_probability_1') | int(-1) %}
+        {% set precip = states('sensor.dark_sky_precip_probability_1d') | int(-1) %}
 
         {% if precip < 0 %}
           unknown
@@ -169,7 +169,7 @@
     precip_probability_friendly_1:
       friendly_name: Probability of Precipitation
       value_template: >-
-        {% set precip = states('sensor.dark_sky_precip_probability_1') | int(-1) %}
+        {% set precip = states('sensor.dark_sky_precip_probability_1d') | int(-1) %}
 
         {% if precip < 0 %}
           unknown
@@ -182,7 +182,7 @@
     precip_probability_2:
       friendly_name: Probability of Precipitation
       value_template: >-
-        {% set precip = states('sensor.dark_sky_precip_probability_2') | int(-1) %}
+        {% set precip = states('sensor.dark_sky_precip_probability_2d') | int(-1) %}
 
         {% if precip < 0 %}
           unknown
@@ -195,7 +195,7 @@
     precip_probability_friendly_2:
       friendly_name: Probability of Precipitation
       value_template: >-
-        {% set precip = states('sensor.dark_sky_precip_probability_2') | int(-1) %}
+        {% set precip = states('sensor.dark_sky_precip_probability_2d') | int(-1) %}
 
         {% if precip < 0 %}
           unknown
@@ -219,36 +219,36 @@
     weather_low:
       friendly_name: Low Temperature
       value_template: >-
-        {{ states('sensor.dark_sky_overnight_low_temperature_0') | round }}
+        {{ states('sensor.dark_sky_overnight_low_temperature_0d') | round }}
 
     weather_low_friendly:
       friendly_name: Low Temperature
       value_template: >-
-        {% set temp = states('sensor.dark_sky_overnight_low_temperature_0') | round %}
+        {% set temp = states('sensor.dark_sky_overnight_low_temperature_0d') | round %}
 
         low: {{ temp }}˚
 
     weather_low_1:
       friendly_name: Low Temperature
       value_template: >-
-        {{ states('sensor.dark_sky_overnight_low_temperature_1') | round }}
+        {{ states('sensor.dark_sky_overnight_low_temperature_1d') | round }}
 
     weather_low_1_friendly:
       friendly_name: Low Temperature
       value_template: >-
-        {% set temp = states('sensor.dark_sky_overnight_low_temperature_1') | round %}
+        {% set temp = states('sensor.dark_sky_overnight_low_temperature_1d') | round %}
 
         low: {{ temp }}˚
 
     weather_low_2:
       friendly_name: Low Temperature
       value_template: >-
-        {{ states('sensor.dark_sky_overnight_low_temperature_2') | round }}
+        {{ states('sensor.dark_sky_overnight_low_temperature_2d') | round }}
 
     weather_low_2_friendly:
       friendly_name: Low Temperature
       value_template: >-
-        {% set temp = states('sensor.dark_sky_overnight_low_temperature_2') | round %}
+        {% set temp = states('sensor.dark_sky_overnight_low_temperature_2d') | round %}
 
         low: {{ temp }}˚
 
@@ -290,7 +290,7 @@
     weather_icon_friendly_1:
       friendly_name: Weather 1
       value_template: >-
-        {% set icon = states('sensor.dark_sky_icon_1') %}
+        {% set icon = states('sensor.dark_sky_icon_1d') %}
 
         {% if icon == 'clear-day' or icon == 'clear-night' %}
           Clear
@@ -317,7 +317,7 @@
     weather_icon_friendly_2:
       friendly_name: Weather 2
       value_template: >-
-        {% set icon = states('sensor.dark_sky_icon_2') %}
+        {% set icon = states('sensor.dark_sky_icon_2d') %}
 
         {% if icon == 'clear-day' or icon == 'clear-night' %}
           Clear
@@ -357,7 +357,7 @@
   sensors:
     wind_speed:
       friendly_name: Wind Speed
-      unit_of_measurement: 'km/h'
+      unit_of_measurement: 'm/h'
       friendly_name_template: >-
         {{ states('sensor.wind_scale_friendly') }}
       icon_template: >-
