@@ -5,7 +5,7 @@ title: Main Panel
 widget_dimensions: [121, 122]
 widget_size: [1, 1]
 widget_margins: [5, 5]
-columns: 10
+columns: 8
 rows: 6
 global_parameters:
     use_comma: 0
@@ -147,7 +147,7 @@ temperature_today:
     sub_entity: sensor.weather_low_friendly
     title2_entity: sensor.feels_like
     widget_style: "background-color:inherit;"
-    title_style: "background-color:#555;padding:5px 52% 3px;margin-right:-10px;margin-top:-5px;border-radius: 5px 5px 0 0"
+    title_style: "background-color:#555;padding:5px 0 3px;margin-right:-10px;margin-top:-5px;border-radius: 5px 5px 0 0"
     title2_style: "margin-top:3px;"
     state_text_style: "background-color:inherit"
 
@@ -158,7 +158,7 @@ temperature_tomorrow:
     sub_entity: sensor.weather_low_1_friendly
     title2_entity: sensor.feels_like_1
     widget_style: "background-color:inherit;"
-    title_style: "background-color:#555;padding:5px 52% 3px;margin-top:-5px;border-radius: 5px 5px 0 0"
+    title_style: "background-color:#555;padding:5px 0 3px;margin-top:-5px;border-radius: 5px 5px 0 0"
     title2_style: "margin-top:3px;"
     state_text_style: "background-color:inherit"
 
@@ -170,7 +170,7 @@ temperature_after_tomorrow:
     title_entity: sensor.after_tomorrow
     title2_entity: sensor.feels_like_2
     widget_style: "background-color:inherit;"
-    title_style: "background-color:#555;padding:5px 52% 3px;margin-top:-5px;border-radius: 5px 5px 0 0"
+    title_style: "background-color:#555;padding:5px 0 3px;margin-top:-5px;border-radius: 5px 5px 0 0"
     title2_style: "margin-top:3px;"
     state_text_style: "background-color:inherit"
 
@@ -311,9 +311,9 @@ aqi:
 #
 layout:
     - include: header
-    - nav_main,         label(6x1), reload, temperature, clock
-    - nav_switchboard,  camera_noaa(3x3), camera_environment_canada(3x3), wind, daily_forecast(2x1)
-    - nav_weather,      wind_icon, weekly_forecast(2x1)
-    - nav_spacer(1x2),  spacer, temperature_today, weather_icon_today
-    -                   spacer(6x1), spacer, temperature_tomorrow, weather_icon_tomorrow
-    - nav_status,       spacer(5x1), spacer(2x1), temperature_after_tomorrow, weather_icon_after_tomorrow
+    - nav_main,         label(4x1), reload, temperature, clock
+    - nav_switchboard,  camera_noaa(3x3), camera_environment_canada(3x3), wind
+    - nav_weather,      wind_icon
+    - nav_spacer(1x2),  spacer
+    -                   daily_forecast(3x1), weekly_forecast(3x1)
+    - nav_status,       temperature_today, weather_icon_today, temperature_tomorrow, weather_icon_tomorrow, temperature_after_tomorrow, weather_icon_after_tomorrow

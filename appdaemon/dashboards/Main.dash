@@ -5,7 +5,7 @@ title: Main Panel
 widget_dimensions: [121, 122]
 widget_size: [1, 1]
 widget_margins: [5, 5]
-columns: 10
+columns: 8
 rows: 6
 global_parameters:
     use_comma: 0
@@ -178,7 +178,7 @@ daily_forecast:
     title_entity: sensor.dark_sky_minutely_summary
     entity: sensor.dark_sky_hourly_summary
     widget_style: "background-color:inherit;"
-    title_style: "background-color:#555;width:150%;margin-left:-50%;margin-top:-5px;padding:5px 0 3px;border-radius:5px;"
+    title_style: "background-color:#555;width:100%;margin-left:0%;margin-top:-5px;padding:5px 0 3px;border-radius:5px;"
 
 wind:
     widget_type: entitysensor
@@ -197,9 +197,9 @@ wind:
 #
 layout:
     - include: header
-    - nav_main,         label(6x1), reload, temperature, clock
-    - nav_switchboard,  slideshow(6x4), wind, temperature_now, weather_icon_now
-    - nav_weather,      spacer, daily_forecast(2x1)
+    - nav_main,         label(4x1), reload, temperature, clock
+    - nav_switchboard,  slideshow(4x3), wind, temperature_now, weather_icon_now
+    - nav_weather,      daily_forecast(3x1)
     - nav_spacer(1x2),  spacer, spacer, spacer
     -                   spacer, spacer, spacer
     - nav_status,       good_morning, night_mode, nap_mode, scene, quiet_mode, low_power_mode, spacer, spacer, spacer

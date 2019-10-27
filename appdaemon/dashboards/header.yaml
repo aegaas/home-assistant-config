@@ -11,9 +11,9 @@ temperature:
     entity: sensor.dark_sky_apparent_temperature
     entity2: sensor.dark_sky_humidity
     widget_style: "background: DARKSLATEBLUE;"
-    value_style: "margin-top:-8px;font-size:225%;"
+    valueunit_style: "margin-top:-8px;font-size:225%;"
     unit_style: "margin-top:-3px;"
-    value2_style: "margin-top:-8px;font-size:225%;"
+    valueunit2_style: "margin-top:-8px;font-size:225%;"
     unit2_style: "margin-top:-3px;"
 
 clock:

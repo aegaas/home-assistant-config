@@ -289,3 +289,12 @@
           {% endif %}
 
         {% endif %}
+
+- platform: todoist
+  token: !secret todoist_api_token
+  custom_projects:
+    - name: 'All Projects'
+    - name: 'Due Today'
+      due_date_days: 0
+    - name: 'Due This Week'
+      due_date_days: 7

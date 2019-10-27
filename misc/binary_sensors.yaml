@@ -14,11 +14,11 @@
 # @link https://github.com/aegaas/resin-flic
 # @link https://home-assistant.io/components/binary_sensor.flic/
 #
-- platform: flic
-  host: !secret flic_host
-  port: !secret flic_port
-  discovery: true
-  timeout: 3
+# - platform: flic
+#   host: !secret flic_host
+#   port: !secret flic_port
+#   discovery: true
+#   timeout: 3
 
 
 #
@@ -71,15 +71,15 @@
 #
 # @link https://discoverecolink.com/product/firefighter-wireless-smoke-co-audio-sensor/
 #
-- platform: template
-  sensors:
-    siren_monitor_smoke:
-      friendly_name: Smoke detector
-      device_class: smoke
-      entity_id:
-        - sensor.siren_monitor_smoke
-      value_template: >-
-        {{ is_state('sensor.siren_monitor_smoke', '2') }}
+# - platform: template
+#   sensors:
+#     siren_monitor_smoke:
+#       friendly_name: Smoke detector
+#       device_class: smoke
+#       entity_id:
+#         - sensor.siren_monitor_smoke
+#       value_template: >-
+#         {{ is_state('sensor.siren_monitor_smoke', '2') }}
 
 # @see /sensors/ring.yaml
 - platform: ring

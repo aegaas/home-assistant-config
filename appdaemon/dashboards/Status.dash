@@ -5,7 +5,7 @@ title: Status
 widget_dimensions: [121, 122]
 widget_size: [1, 1]
 widget_margins: [5, 5]
-columns: 10
+columns: 8
 rows: 6
 global_parameters:
     use_comma: 0
@@ -85,11 +85,6 @@ log_size:
     widget_type: sensor
     title: Log File
     entity: sensor.log_size
-
-cpu_temp:
-    widget_type: sensor
-    entity: sensor.cpu_temp
-    title: CPU Temp
 
 cpu_use:
     widget_type: sensor
@@ -292,9 +287,9 @@ status_tamper:
 #
 layout:
     - include: header
-    - nav_main,         label(6x1), reload, temperature, clock
-    - nav_switchboard,  uptime, uptime_host, database_size, log_size, spacer(1x1), status_doors, status_motion, status_leak, status_tamper
-    - nav_weather,      cpu_temp, cpu_use, memory_use, disk_use, spacer(1x1), radon, sensor.speedtest_ping, upspeed, downspeed
+    - nav_main,         label(4x1), reload, temperature, clock
+    - nav_switchboard,  uptime, uptime_host, database_size, log_size, status_doors, status_motion, status_leak, status_tamper
+    - nav_weather,      cpu_use, memory_use, disk_use, spacer(1x1), sensor.speedtest_ping, upspeed, downspeed
     - nav_spacer(1x2)
-    -                   average_temperature, bedroom_temperature, lounge_temperature, washroom_temperature, spacer(1x1), front_door_sensor_battery, humidor_multisensor_battery, kiosk_battery, kitchen_leak_sensor_battery
-    - nav_status,       average_humidity, bedroom_humidity, lounge_humidity, washroom_humidity, spacer(1x1), siren_monitor_battery, washroom_multisensor_battery, washroom_leak_sensor_battery
+    -                   front_door_sensor_battery, humidor_multisensor_battery, kiosk_battery
+    - nav_status,       siren_monitor_battery, washroom_multisensor_battery, washroom_leak_sensor_battery
