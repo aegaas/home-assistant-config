@@ -30,36 +30,12 @@ scene_mode:
 
 
 #
-# Manual effect overrides
-#
-kitchen_lights_override:
-  name: Kitchen Lights have overriding effect set
-  icon: mdi:food-fork-drink
-
-
-#
 # Security
 #
 door_test:
   name: Door test
   icon: mdi:door-open
 
-leak_test:
-  name: Leak test
-  icon: mdi:pipe-leak
-
 motion_test:
   name: Motion test
   icon: mdi:run
-
-smoke_test:
-  name: Smoke test
-  icon: mdi:smoke-detector
-
-tamper_detected:
-  name: Tamper detected
-  icon: mdi:security-home
-
-windows_open:
-  name: Windows are open
-  icon: mdi:window-open

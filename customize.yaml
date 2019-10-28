@@ -337,14 +337,6 @@ scene.shutdown:
 
 
 #
-# Scripts
-#
-script.tamper_reset:
-  icon: mdi:restart
-script.wake_up:
-  icon: mdi:weather-sunny
-
-#
 # Updater
 #
 updater.updater:

@@ -13,6 +13,7 @@ automation: !include_dir_merge_list automations/
 #
 binary_sensor: !include misc/binary_sensors.yaml
 
+calendar: !include_dir_merge_list calendars
 
 #
 # Cameras
@@ -28,17 +29,17 @@ influxdb:
 
 
 hue:
-  bridges:
-    - host: 192.168.0.40
-      filename: phue.conf
-      allow_unreachable: true
-      allow_hue_groups: false
-      expose_by_default: true
-      exposed_domains:
-        - light
-        - switch
-        - input_boolean
-        - fan
+  # bridges:
+  #   - host: 192.168.0.40
+  #     filename: phue.conf
+  #     allow_unreachable: true
+  #     allow_hue_groups: true
+  #     expose_by_default: true
+  #     exposed_domains:
+  #       - light
+  #       - switch
+  #       - input_boolean
+  #       - fan
 
 #
 # Enable the configuration UI
@@ -87,25 +88,6 @@ device_tracker: !include misc/device_trackers.yaml
 # @link https://home-assistant.io/components/discovery/
 #
 discovery:
-  ignore:
-    - google_cast
-    - samsung_printer
-  enable:
-    - homekit
-    - plex
-    - philips_hue
-    - apple_tv
-    - harmony
-
-#
-# Displays
-#
-# @see /custom_components/display/
-#
-# @link https://github.com/daemondazz/homeassistant-displays
-#
-display: !include misc/displays.yaml
-
 
 #
 # Enable the official UI
@@ -225,12 +207,12 @@ input_select: !include misc/input_selects.yaml
 
 
 
-#
-# Lights
-#
-# @link https://home-assistant.io/components/light/
-#
-light: !include_dir_merge_list lights/
+# #
+# # Lights
+# #
+# # @link https://home-assistant.io/components/light/
+# #
+# light: !include_dir_merge_list lights/
 
 
 #
@@ -301,16 +283,6 @@ notify: !include_dir_merge_list notifications/
 
 
 #
-# Database recorder
-#
-# Limit the number of tracked entities and length of history.
-#
-# @link https://home-assistant.io/components/recorder/
-#
-recorder: !include misc/recorder.yaml
-
-
-#
 # Scenes
 #
 # @link https://home-assistant.io/components/scene/
@@ -333,15 +305,6 @@ script: !include_dir_named scripts/
 #
 sensor: !include_dir_merge_list sensors/
 
-
-#
-# Shell commands
-#
-# @link https://home-assistant.io/components/shell_command/
-#
-shell_command: !include misc/shell_commands.yaml
-
-
 #
 # Ring Home Security
 #
@@ -363,16 +326,6 @@ sun:
 # @link https://home-assistant.io/components/switch/
 #
 switch: !include_dir_merge_list switches/
-
-
-#
-# Text to speech
-#
-# @link https://home-assistant.io/components/tts/
-#
-tts:
-  - platform: google_translate
-    service_name: google_say
 
 
 #
@@ -405,15 +358,3 @@ variable: !include misc/variables.yaml
 # @link https://home-assistant.io/components/zone/
 #
 zone: !include misc/zones.yaml
-
-
-#
-# ZWave integration
-#
-# @link https://home-assistant.io/docs/z-wave/adding/
-# @link https://home-assistant.io/docs/z-wave/
-# @link https://home-assistant.io/components/zwave/
-#
-zwave:
-  usb_path: /dev/ttyACM0
-  network_key: !secret zwave_network_key
