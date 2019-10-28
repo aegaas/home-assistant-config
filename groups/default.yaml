@@ -29,36 +29,12 @@ actions:
     - input_boolean.quiet_mode
     - input_boolean.low_mode
 
-climate:
-  name: Climate Control
-  entities:
-    - sensor.average_temperature
-    - sensor.average_humidity_friendly
-    - switch.dehumidifier
-    - sensor.radon_friendly
-
-notifications:
-  name: Notifications
-  entities:
-    - persistent_notification.security
-    - persistent_notification.humidity
-
 now:
   name: " "
   entities:
     - sensor.date_friendly
     - sensor.time_friendly
     - sensor.sun_state
-
-public_transit:
-  name: Public Transit
-  entities:
-    - sensor.home_to_metro_hour
-    - sensor.home_to_metro_2_hour
-    - sensor.home_to_metro_3_hour
-    - sensor.home_to_market_hour
-    - sensor.home_to_market_2_hour
-    - sensor.home_to_market_3_hour
 
 presence:
   name: Presence
@@ -72,10 +48,7 @@ security:
   control: hidden
   entities:
     - sensor.door_status
-    - sensor.leak_status
     - sensor.motion_status
-    - sensor.smoke_status
-    - sensor.tamper_status
 
 wallpaper:
   name: " "

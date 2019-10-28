@@ -111,6 +111,11 @@ disk_use:
 #
 # Network
 #
+online:
+    widget_type: sensor
+    entity: sensor.google_wifi_status
+    title: Online
+
 upspeed:
     widget_type: sensor
     entity: sensor.speedtest_upload
@@ -120,88 +125,6 @@ downspeed:
     widget_type: sensor
     entity: sensor.speedtest_download
     title: Downspeed
-
-
-#
-# Indoor Air Quality
-#
-radon:
-    widget_type: sensor
-    title: Radon
-    entity: sensor.radon_daily
-    sub_entity: sensor.radon_friendly
-    state_text_style: "background-color:#555;"
-
-
-#
-# Temperatures
-#
-average_temperature:
-    widget_type: sensor
-    entity: sensor.bedroom_temperature
-    title: Temperature
-    title2: Average
-    widget_style: "background-color:inherit;"
-    title_style: "background-color:#555;padding:5px 156% 3px;margin-right:-10px;margin-top:-5px;border-radius: 5px 5px 0 0"
-    title2_style: "margin-top:3px;"
-    value_style: "color:orange;"
-    unit_style: "color:orange;"
-
-bedroom_temperature:
-    widget_type: sensor
-    entity: sensor.bedroom_temperature
-    title2: Bedroom
-    widget_style: "background-color:inherit;"
-    title2_style: "margin-top:3px;"
-
-lounge_temperature:
-    widget_type: sensor
-    entity: sensor.lounge_temperature
-    title2: Lounge
-    widget_style: "background-color:inherit;"
-    title2_style: "margin-top:3px;"
-
-washroom_temperature:
-    widget_type: sensor
-    entity: sensor.washroom_temperature
-    title2: Washroom
-    widget_style: "background-color:inherit;"
-    title2_style: "margin-top:3px;"
-
-#
-# Humidity
-#
-average_humidity:
-    widget_type: sensor
-    entity: sensor.average_humidity
-    title: Humidity
-    title2: Average
-    widget_style: "background-color:inherit;"
-    title_style: "background-color:#555;padding:5px 156% 3px;margin-right:-10px;margin-top:-5px;border-radius: 5px 5px 0 0"
-    title2_style: "margin-top:3px;"
-    value_style: "color:orange;"
-    unit_style: "color:orange;"
-
-bedroom_humidity:
-    widget_type: sensor
-    entity: sensor.bedroom_humidity
-    title2: Bedroom
-    widget_style: "background-color:inherit;"
-    title2_style: "margin-top:3px;"
-
-lounge_humidity:
-    widget_type: sensor
-    entity: sensor.lounge_humidity
-    title2: Lounge
-    widget_style: "background-color:inherit;"
-    title2_style: "margin-top:3px;"
-
-washroom_humidity:
-    widget_type: sensor
-    entity: sensor.washroom_humidity
-    title2: Washroom
-    widget_style: "background-color:inherit;"
-    title2_style: "margin-top:3px;"
 
 
 #
@@ -242,18 +165,6 @@ siren_monitor_battery:
     title2: Siren Monitor
     widget_style: "background-color:inherit;"
 
-washroom_multisensor_battery:
-    widget_type: sensor
-    entity: sensor.washroom_multisensor_battery
-    title2: Washroom
-    widget_style: "background-color:inherit;"
-
-washroom_leak_sensor_battery:
-    widget_type: sensor
-    entity: sensor.washroom_leak_sensor_battery
-    title2: Washroom Leak
-    widget_style: "background-color:inherit;"
-
 
 #
 # Security
@@ -276,11 +187,6 @@ status_motion:
     entity: group.motion_sensors
     title: Motion
 
-status_tamper:
-    widget_type: binary_sensor
-    entity: input_boolean.tamper_detected
-    title: Tampering
-
 
 #
 # Layout
@@ -288,8 +194,8 @@ status_tamper:
 layout:
     - include: header
     - nav_main,         label(4x1), reload, temperature, clock
-    - nav_switchboard,  uptime, uptime_host, database_size, log_size, status_doors, status_motion, status_leak, status_tamper
-    - nav_weather,      cpu_use, memory_use, disk_use, spacer(1x1), sensor.speedtest_ping, upspeed, downspeed
+    - nav_switchboard,  uptime, uptime_host, database_size, log_size, status_doors, status_motion, status_leak
+    - nav_weather,      cpu_use, memory_use, disk_use, online, sensor.speedtest_ping, upspeed, downspeed
     - nav_spacer(1x2)
     -                   front_door_sensor_battery, humidor_multisensor_battery, kiosk_battery
     - nav_status,       siren_monitor_battery, washroom_multisensor_battery, washroom_leak_sensor_battery

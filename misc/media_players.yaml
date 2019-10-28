@@ -4,34 +4,4 @@
 # @link https://home-assistant.io/components/media_player/
 #
 
-
-#
-# Kodi
-#
-# @link https://kodi.tv/
-# @link https://home-assistant.io/components/media_player.kodi/
-#
-- platform: kodi
-  name: Kodi
-  host: !secret kodi_host
-  port: !secret kodi_port
-  tcp_port: !secret kodi_tcp_port
-  username: !secret kodi_username
-  password: !secret kodi_password
-  enable_websocket: true
-
-
-#
-# Plex
-#
-# @link https://www.plex.tv/
-# @link https://home-assistant.io/components/media_player.plex/
-#
 - platform: plex
-  name: Plex
-  entity_namespace: plex
-  include_non_clients: true
-  scan_interval: 5
-  show_all_controls: false
-  use_custom_entity_ids: false
-  use_episode_art: true

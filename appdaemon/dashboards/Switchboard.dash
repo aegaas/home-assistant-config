@@ -207,123 +207,74 @@ spacer_tetris:
 # Bedroom
 #
 label_bedroom:
-    widget_type: multisensor
-    title2: Bedroom
-    entity: sensor.bedroom_temperature
-    entity2: sensor.bedroom_humidity
-    widget_style: "background-color:INDIGO;"
-    title2_style: "font-size:175%;font-weight:400;"
-
-light_bed_effect:
-    widget_type: input_select
-    title2: Bed Effect
-    entity: input_select.bed_effect
-    sub_entity: sensor.bed_effect_loaded
-    widget_style: "background-color:INDIGO;"
-    state_text_style: "background-color:PURPLE;"
-    select_style: "background-color:PURPLE;color:$white;"
-
-#underglow_headboard:
-#    widget_type: light
-#    title: Headboard
-#    entity: light.headboard
-#    widget_style: "background-color:INDIGO;"
-
-#underglow_underbed:
-#    widget_type: light
-#    title: Underbed
-#    entity: light.underbed
-#    widget_style: "background-color:INDIGO;"
-
-#light_bedside:
-#    widget_type: switch
-#    title: Bedside
-#    entity: light.bedside
-#    widget_style: "background-color:INDIGO;"
-
-#light_nightstand:
-#    widget_type: switch
-#    title: Nightstand
-#    entity: light.nightstand
-#    widget_style: "background-color:INDIGO;"
-
-#fan_bedroom:
-#    widget_type: switch
-#    title: Fan
-#    entity: switch.bedroom_fan
-#    widget_style: "background-color:INDIGO;"
-
-
-#
-# Lounge
-#
-label_lounge:
-    widget_type: multisensor
-    title2: Lounge
-    entity: sensor.lounge_temperature
-    entity2: sensor.lounge_humidity
-    widget_style: "background-color:DARKRED;"
-    title2_style: "font-size:175%;font-weight:400;"
-
-light_aurora:
-    widget_type: light
-    title: Aurora
-    entity: light.aurora
-    widget_style: "background-color:DARKRED;"
-    state_text_style: "background-color:FIREBRICK;"
-
-light_aurora_effect:
-    widget_type: input_select
-    title2: Aurora Effect
-    entity: input_select.aurora_effect
-    sub_entity: sensor.aurora_effect_loaded
-    widget_style: "background-color:DARKRED;"
-    state_text_style: "background-color:FIREBRICK;"
-    select_style: "background-color:FIREBRICK;color:$white;"
-
-light_tv_backlight:
-    widget_type: switch
-    title: Lightpack
-    entity: light.lightpack
-    widget_style: "background-color:DARKRED;"
-
-light_tv_backlight_effect:
-    widget_type: input_select
-    title2: Lightpack Effect
-    entity: input_select.lightpack_effect
-    sub_entity: sensor.lightpack_effect_loaded
-    widget_style: "background-color:DARKRED;"
-    state_text_style: "background-color:FIREBRICK;"
-    select_style: "background-color:FIREBRICK;color:$white;"
-
-light_spotlight:
-    widget_type: light
-    title: Spotlight
-    entity: light.spotlight
-    widget_style: "background-color:DARKRED;"
-
-light_lamp:
     widget_type: label
-    title: Lamp
-    widget_style: "background-color:DARKRED;"
+    title2: Master Bedroom
+    widget_style: "background-color:INDIGO;"
+    title2_style: "font-size:175%;font-weight:400;"
 
-light_souvenirs:
-    widget_type: switch
-    title: Souvenirs
-    entity: light.souvenirs
-    widget_style: "background-color:DARKRED;"
+light_bedroom:
+    widget_type: light
+    title: Nightstands
+    entity: light.master_bedroom
+    widget_style: "background-color:INDIGO;"
 
-light_window:
-    widget_type: switch
-    title: Window
-    entity: light.window
-    widget_style: "background-color:DARKRED;"
+#
+# office
+#
+label_office:
+    widget_type: label
+    title2: Office
+    widget_style: "background-color:yellowgreen;"
+    title2_style: "font-size:175%;font-weight:400;"
 
-switch_tv:
+light_office:
+    widget_type: light
+    title: Office
+    entity: light.office
+    widget_style: "background-color:yellowgreen;"
+
+switch_office_airconditioner:
     widget_type: switch
-    title: TV
-    entity: switch.lounge_tv
+    title: Lights
+    entity: switch.office_ac
+    widget_style: "background-color:yellowgreen;"
+
+#
+# Family Room
+#
+label_familyroom:
+    widget_type: label
+    title2: Family Room
     widget_style: "background-color:DARKRED;"
+    title2_style: "font-size:175%;font-weight:400;"
+
+light_familyroom:
+    widget_type: light
+    title: Family Room
+    entity: light.family_room
+    widget_style: "background-color:DARKRED;"
+    state_text_style: "background-color:FIREBRICK;"
+
+#
+# Night Lights
+#
+label_nightlights:
+    widget_type: label
+    title2: Night Lights
+    widget_style: "background-color:BLACK;"
+    title2_style: "font-size:175%;font-weight:400;"
+
+light_nightlights_zoey:
+    widget_type: light
+    title: Zoey
+    entity: light.zoeys_lamp
+    widget_style: "background-color:BLACK;"
+
+light_nightlights_dexter:
+    widget_type: light
+    title: Dexter
+    entity: light.dexter_s_night_light
+    widget_style: "background-color:BLACK;"
 
 
 #
@@ -332,8 +283,8 @@ switch_tv:
 layout:
     - include: header
     - nav_main,         label(4x1), reload, temperature, clock
-    - nav_switchboard,  spacer, label_exterior, light_front_porch, spacer(2x1), label_ceiling, washlight_bedroom
-    - nav_weather,      label_kitchen, light_microwave, spacer, label_washroom, light_shower, spacer
-    - nav_spacer(1x2),  light_island, light_sink, light_countertop, spacer, light_lavatory, spacer
-    -                   label_bedroom, light_bed_effect, underglow_headboard, underglow_underbed, label_lounge, light_aurora_effect, light_aurora
-    - nav_status,       light_nightstand, light_bedside, fan_bedroom, spacer, light_spotlight, light_souvenirs, light_window
+    - nav_switchboard,  label_office, light_office, switch_office_airconditioner
+    - nav_weather,      label_bedroom, light_bedroom
+    - nav_spacer(1x2)
+    -                   label_familyroom, light_familyroom
+    - nav_status,       spacer(4x1), label_nightlights, light_nightlights_zoey, light_nightlights_dexter

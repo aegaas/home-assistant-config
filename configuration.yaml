@@ -22,25 +22,6 @@ calendar: !include_dir_merge_list calendars
 #
 camera: !include_dir_merge_list cameras/
 
-#Note: The influxdb runs along side the HA DB.  It does not replace it.  influxdb is used to grab data for Grafana.
-influxdb:
-  host: 192.168.0.2
-  database: home_assistant
-
-
-hue:
-  # bridges:
-  #   - host: 192.168.0.40
-  #     filename: phue.conf
-  #     allow_unreachable: true
-  #     allow_hue_groups: true
-  #     expose_by_default: true
-  #     exposed_domains:
-  #       - light
-  #       - switch
-  #       - input_boolean
-  #       - fan
-
 #
 # Enable the configuration UI
 #
@@ -115,6 +96,8 @@ frontend:
 group: !include_dir_merge_named groups/
 
 
+hue:
+
 #
 # Enable the Hass.io panel
 #
@@ -122,13 +105,18 @@ group: !include_dir_merge_named groups/
 #
 # hassio:
 
-
 #
 # Enable support for tracking state changes over time
 #
 # @link https://home-assistant.io/components/history/
 #
 history:
+
+#Note: The influxdb runs along side the HA DB.  It does not replace it.  influxdb is used to grab data for Grafana.
+influxdb:
+  host: 192.168.0.2
+  database: home_assistant
+
 
 speedtestdotnet:
   monitored_conditions:
@@ -156,8 +144,6 @@ homeassistant:
       trusted_networks:
         - 192.168.0.0/24
         - fd00::/8
-
-system_health:
 
 #
 # HomeKit
@@ -281,6 +267,12 @@ mqtt:
 #
 notify: !include_dir_merge_list notifications/
 
+#
+# Ring Home Security
+#
+# @link https://home-assistant.io/components/ring/
+#
+ring: !include misc/ring.yaml
 
 #
 # Scenes
@@ -305,12 +297,8 @@ script: !include_dir_named scripts/
 #
 sensor: !include_dir_merge_list sensors/
 
-#
-# Ring Home Security
-#
-# @link https://home-assistant.io/components/ring/
-#
-ring: !include misc/ring.yaml
+
+system_health:
 
 #
 # Track the sun
@@ -327,6 +315,7 @@ sun:
 #
 switch: !include_dir_merge_list switches/
 
+tplink:
 
 #
 # Check for available updates
