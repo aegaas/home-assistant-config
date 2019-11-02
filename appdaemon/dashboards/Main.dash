@@ -79,7 +79,6 @@ slideshow:
         - sensor.apod
     title_style: "line-height:2em;opacity:0.8;"
 
-
 #
 # Actions
 #
@@ -181,7 +180,7 @@ daily_forecast:
 
 wind:
     widget_type: entitysensor
-    entity: sensor.wind_speed
+    entity: sensor.dark_sky_wind_speed
     title2_entity: sensor.wind_scale_friendly
     sub_entity: sensor.wind_bearing_cardinal_friendly
     widget_style: "background-color:inherit;"

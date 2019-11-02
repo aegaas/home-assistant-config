@@ -22,6 +22,8 @@ calendar: !include_dir_merge_list calendars
 #
 camera: !include_dir_merge_list cameras/
 
+cloud:
+
 #
 # Enable the configuration UI
 #
@@ -112,19 +114,6 @@ hue:
 #
 history:
 
-#Note: The influxdb runs along side the HA DB.  It does not replace it.  influxdb is used to grab data for Grafana.
-influxdb:
-  host: 192.168.0.2
-  database: home_assistant
-
-
-speedtestdotnet:
-  monitored_conditions:
-    - ping
-    - download
-    - upload
-  server_id: !secret speedtest_server_id
-
 #
 # Setup basic Home Assistant information
 #
@@ -140,18 +129,15 @@ homeassistant:
   whitelist_external_dirs:
     - !secret homeassistant_whitelist_config
   auth_providers:
-    - type: trusted_networks
-      trusted_networks:
-        - 192.168.0.0/24
-        - fd00::/8
-
+    - type: homeassistant
+    - type: legacy_api_password
+      api_password: !secret http_password
 #
 # HomeKit
 #
 # @link https://www.home-assistant.io/components/homekit/
 #
 homekit: !include misc/homekit.yaml
-
 
 #
 # Enable the web server
@@ -165,6 +151,12 @@ http:
   base_url: !secret http_base_url
   server_port: !secret http_server_port
   cors_allowed_origins: !secret http_cors_allowed_origins
+
+
+#Note: The influxdb runs along side the HA DB.  It does not replace it.  influxdb is used to grab data for Grafana.
+influxdb:
+  host: 192.168.0.2
+  database: home_assistant
 
 
 #
@@ -206,8 +198,11 @@ input_select: !include misc/input_selects.yaml
 #
 # @link https://home-assistant.io/components/logbook/
 #
-# logbook:
-
+logbook:
+  exclude:
+    entities:
+      - sensor.time
+      - sensor.time_friendly
 
 #
 # Log some details
@@ -218,9 +213,6 @@ logger:
   default: warning
   logs:
     aiohttp.server: critical # EBOX newer component bug.
-    custom_components.display: critical # When tablet is offline.
-    custom_components.light.lightpack: critical # When Lightpack is offline.
-    homeassistant.components.device_tracker.unifi: fatal # When Unifi Controller is temporarily unreachable.
     homeassistant.components.media_player.plex: fatal # When Plex is offline.
     homeassistant.components.switch.tplink: error # When switch is unplugged.
     pyunifi.controller: error # When Unifi Controller is temporarily unreachable.
@@ -231,7 +223,7 @@ logger:
 #
 # @link https://home-assistant.io/components/map/
 #
-# map:
+map:
 
 
 #
@@ -274,13 +266,6 @@ notify: !include_dir_merge_list notifications/
 #
 ring: !include misc/ring.yaml
 
-#
-# Scenes
-#
-# @link https://home-assistant.io/components/scene/
-#
-scene: !include misc/scenes.yaml
-
 
 #
 # Scripts
@@ -297,8 +282,14 @@ script: !include_dir_named scripts/
 #
 sensor: !include_dir_merge_list sensors/
 
-
-system_health:
+speedtestdotnet:
+  scan_interval:
+    minutes: 30
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+  server_id: !secret speedtest_server_id
 
 #
 # Track the sun
@@ -314,6 +305,8 @@ sun:
 # @link https://home-assistant.io/components/switch/
 #
 switch: !include_dir_merge_list switches/
+
+system_health:
 
 tplink:
 

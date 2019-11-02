@@ -31,8 +31,6 @@ radar_satellite:
   name: Maps
   control: hidden
   entities:
-    - camera.environment_canada_rain
-    - camera.environment_canada_snow
     - camera.noaa_geocolor
     - camera.noaa_water_vapour
 

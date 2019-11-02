@@ -176,12 +176,6 @@ status_doors:
     icon_on: mdi-lock-open-outline
     icon_off: mdi-lock
 
-status_leak:
-    widget_type: binary_sensor
-    entity: group.leak_sensors
-    title: Leak
-    icon_on: mdi-water
-
 status_motion:
     widget_type: binary_sensor
     entity: group.motion_sensors
@@ -194,8 +188,6 @@ status_motion:
 layout:
     - include: header
     - nav_main,         label(4x1), reload, temperature, clock
-    - nav_switchboard,  uptime, uptime_host, database_size, log_size, status_doors, status_motion, status_leak
+    - nav_switchboard,  uptime, uptime_host, database_size, log_size, status_doors, status_motion
     - nav_weather,      cpu_use, memory_use, disk_use, online, sensor.speedtest_ping, upspeed, downspeed
     - nav_spacer(1x2)
-    -                   front_door_sensor_battery, humidor_multisensor_battery, kiosk_battery
-    - nav_status,       siren_monitor_battery, washroom_multisensor_battery, washroom_leak_sensor_battery

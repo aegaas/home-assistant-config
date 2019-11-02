@@ -10,12 +10,6 @@
   resources:
     - type: disk_use
       arg: /home
-    - type: disk_use
-      arg: /drobo/backup
-    - type: disk_use
-      arg: /drobo/movies
-    - type: disk_use
-      arg: /drobo/video
     - type: disk_free
       arg: /home
     - type: ipv4_address

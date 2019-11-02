@@ -63,35 +63,26 @@ label:
     text_style: "font-size: 300%;"
     state_text_style: "font-size:125%;padding-bottom:0.15em;background-color:MEDIUMSLATEBLUE;"
 
-
-#
-# Current weather
-#
-camera_environment_canada:
+camera_noaa_water_vapour:
     widget_type: entitycamera
-    refresh: 1
+    refresh: 3
     cache: 600
     img_list:
-        - !secret camera_environment_canada_rain_3
-        - !secret camera_environment_canada_rain_2
-        - !secret camera_environment_canada_rain_1
-        - !secret camera_environment_canada_snow_3
-        - !secret camera_environment_canada_snow_2
-        - !secret camera_environment_canada_snow_1
+        - !secret camera_noaa_water_vapour
     title_style: "background-color: rgba(0, 0, 0, 1);"
 
-camera_noaa:
+camera_noaa_geocolor:
     widget_type: entitycamera
     refresh: 3
     cache: 600
     img_list:
         - !secret camera_noaa_geocolor
-        - !secret camera_noaa_water_vapour
     title_style: "background-color: rgba(0, 0, 0, 1);"
+
 
 wind:
     widget_type: entitysensor
-    entity: sensor.wind_speed
+    entity: sensor.dark_sky_wind_speed
     title2_entity: sensor.wind_scale_friendly
     widget_style: "background-color:inherit;"
 
@@ -312,7 +303,7 @@ aqi:
 layout:
     - include: header
     - nav_main,         label(4x1), reload, temperature, clock
-    - nav_switchboard,  camera_noaa(3x3), camera_environment_canada(3x3), wind
+    - nav_switchboard,  camera_noaa_geocolor(3x3), camera_noaa_water_vapour(3x3), wind
     - nav_weather,      wind_icon
     - nav_spacer(1x2),  spacer
     -                   daily_forecast(3x1), weekly_forecast(3x1)

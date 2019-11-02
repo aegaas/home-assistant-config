@@ -24,7 +24,7 @@
     {% set current = as_timestamp(utcnow()) %}
     {% set timestamp = (current - (current % offset)) | int %}
 
-    https://cdn.star.nesdis.noaa.gov/GOES16/ABI/SECTOR/ne/GEOCOLOR/600x600.jpg#{{ timestamp }}
+    https://cdn.star.nesdis.noaa.gov/GOES17/ABI/SECTOR/pnw/GEOCOLOR/600x600.jpg#{{ timestamp }}
 
 
 - platform: generic
@@ -39,4 +39,4 @@
     {% set current = as_timestamp(utcnow()) %}
     {% set timestamp = (current - (current % offset)) | int %}
 
-    https://cdn.star.nesdis.noaa.gov/GOES16/ABI/SECTOR/ne/10/600x600.jpg#{{ timestamp }}
+    https://cdn.star.nesdis.noaa.gov/GOES17/ABI/SECTOR/pnw/10/600x600.jpg#{{ timestamp }}

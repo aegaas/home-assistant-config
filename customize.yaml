@@ -50,12 +50,6 @@ automation.wake_up:
 #
 camera.bing_wallpaper:
   hide_control: true
-camera.environment_canada_rain:
-  friendly_name: "Radar: Rain"
-  hide_control: true
-camera.environment_canada_snow:
-  friendly_name: "Radar: Snow"
-  hide_control: true
 camera.noaa_geocolor:
   friendly_name: "Satellite: Geocolor"
   hide_control: true
@@ -318,12 +312,12 @@ sensor.weather_details:
   custom_ui_state_card: state-card-value_only
 sensor.wind_speed:
   extra_badge:
-    entity_id: sensor.wind_bearing_cardinal
+    entity_id: sensor.dark_sky_wind_speed
   templates:
     theme: >-
       var v = parseInt(state);
-      return v >= 89 ? 'card-critical'
-      : v >= 39 ? 'card-warning'
+      return v >= 40 ? 'card-critical'
+      : v >= 20 ? 'card-warning'
       : null;
 
 

@@ -14,21 +14,9 @@
 #
 #- platform: bluetooth_tracker
 
+# Example configuration.yaml entry
 
-#
-# Ubiquiti UniFi wireless access point
-#
-# Connects to the UniFi controller with a read-only user.
-#
-# @link https://www.ubnt.com/unifi/unifi-cloud-key/
-# @link https://home-assistant.io/components/device_tracker.unifi/
-#
-- platform: unifi
-  host: !secret unifi_host
-  port: !secret unifi_port
-  username: !secret unifi_username
-  password: !secret unifi_password
-  verify_ssl: false
-  track_new_devices: true
-  interval_seconds: 10
-  consider_home: 180
+- platform: nmap_tracker
+  hosts: 192.168.0.0/24
+  exclude: 
+    - 192.168.0.1
