@@ -17,6 +17,8 @@
 # Example configuration.yaml entry
 
 - platform: nmap_tracker
-  hosts: 192.168.0.0/24
-  exclude: 
-    - 192.168.0.1
+  hosts: 
+    - 192.168.0.177 # Aaron iPhone
+    - 192.168.0.77 # iPad Mini
+    - 192.168.0.11 # Big iPad
+    - 192.168.0.143 # Kid Phone

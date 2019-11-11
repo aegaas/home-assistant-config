@@ -22,9 +22,9 @@ static_css:
   widget_style: $multisensor_widget_style
 css:
   text_style: $multisensor_text_style
-  value_style: $multisensor_value_style
-  unit_style: $multisensor_unit_style
-  value2_style: $multisensor_value2_style
-  unit2_style: $multisensor_unit2_style
+  # value_style: $multisensor_value_style
+  # unit_style: $multisensor_unit_style
+  # value2_style: $multisensor_value2_style
+  # unit2_style: $multisensor_unit2_style
 icons: []
 static_icons: []

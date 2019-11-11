@@ -1,14 +1,15 @@
 .widget-basemultisensor-{{id}} .unit {
-	font-size: 200%;
 	font-weight: 400;
 	display: inline-block;
 	vertical-align: top;
 	margin-top: 2px;
+	font-size: 120%;
 }
 
 .widget-basemultisensor-{{id}} .value {
 	display: inline-block;
 	vertical-align: middle;
+	font-size: 150%;
 }
 
 .widget-basemultisensor-{{id}} .valueunit {
@@ -18,16 +19,17 @@
 }
 
 .widget-basemultisensor-{{id}} .unit2 {
-	font-size: 200%;
 	font-weight: 400;
 	display: inline-block;
 	vertical-align: top;
 	margin-top: 2px;
+	font-size: 120%;
 }
 
 .widget-basemultisensor-{{id}} .value2 {
 	display: inline-block;
 	vertical-align: middle;
+	font-size: 150%;
 }
 
 .widget-basemultisensor-{{id}} .valueunit2 {
@@ -54,4 +56,3 @@
 	bottom: -3px;
 	width: 100%;
 }
-

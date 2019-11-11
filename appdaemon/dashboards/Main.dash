@@ -69,6 +69,7 @@ slideshow:
     refresh: 5
     cache: 600
     img_list:
+        - !secret camera_front_door
         - !secret camera_bing
         - !secret camera_noaa_geocolor
         - !secret camera_apod
@@ -198,6 +199,5 @@ layout:
     - nav_main,         label(4x1), reload, temperature, clock
     - nav_switchboard,  slideshow(4x3), wind, temperature_now, weather_icon_now
     - nav_weather,      daily_forecast(3x1)
-    - nav_spacer(1x2),  spacer, spacer, spacer
-    -                   spacer, spacer, spacer
+    - nav_spacer(1x1),  spacer, spacer, spacer
     - nav_status,       good_morning, night_mode, nap_mode, scene, quiet_mode, low_power_mode, spacer, spacer, spacer

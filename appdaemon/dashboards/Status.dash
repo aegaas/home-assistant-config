@@ -190,4 +190,5 @@ layout:
     - nav_main,         label(4x1), reload, temperature, clock
     - nav_switchboard,  uptime, uptime_host, database_size, log_size, status_doors, status_motion
     - nav_weather,      cpu_use, memory_use, disk_use, online, sensor.speedtest_ping, upspeed, downspeed
-    - nav_spacer(1x2)
+    - nav_spacer(1x1),  spacer, spacer, spacer
+    - nav_status   

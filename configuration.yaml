@@ -72,6 +72,8 @@ device_tracker: !include misc/device_trackers.yaml
 #
 discovery:
 
+ffmpeg:
+
 #
 # Enable the official UI
 #
@@ -159,6 +161,9 @@ influxdb:
   database: home_assistant
 
 
+ios:
+
+
 #
 # IFTTT integration
 #
@@ -203,6 +208,7 @@ logbook:
     entities:
       - sensor.time
       - sensor.time_friendly
+      - sensor.date_friendly
 
 #
 # Log some details
@@ -259,6 +265,15 @@ mqtt:
 #
 notify: !include_dir_merge_list notifications/
 
+
+remote:
+  - platform: harmony
+    name: Rec Room
+    host: 192.168.0.237
+  - platform: harmony
+    name: Family Room
+    host: 192.168.0.52
+
 #
 # Ring Home Security
 #
@@ -309,6 +324,19 @@ switch: !include_dir_merge_list switches/
 system_health:
 
 tplink:
+  discovery: false
+  switch:
+  - host: 192.168.0.183
+  - host: 192.168.0.242
+  - host: 192.168.0.243
+  - host: 192.168.0.245
+
+tuya:
+  username: !secret tuya_username
+  password: !secret tuya_password
+  country_code: 1
+  platform: smart_life
+
 
 #
 # Check for available updates
@@ -332,6 +360,13 @@ updater:
 # @link https://github.com/rogro82/hass-variables
 #
 variable: !include misc/variables.yaml
+
+
+xfinity:
+  username: !secret xfinity_username
+  password: !secret xfinity_password
+
+zeroconf:
 
 
 #

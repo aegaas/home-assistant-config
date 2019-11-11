@@ -467,8 +467,8 @@ iconsensor_state_text_style: $style_state_text
 
 multisensor_title_style: $style_title
 multisensor_title2_style: $style_title2
-multisensor_valueunit_style: ""
-multisensor_valueunit2_style: ""
+multisensor_valueunit_style: "color: $blue; font-size: 100%;"
+multisensor_valueunit2_style: "color: $blue; font-size: 100%;"
 multisensor_value_style: "color: $orange; font-size: 175%;"
 multisensor_value2_style: "color: $blue; font-size: 175%;"
 multisensor_text_style: "color: $white; font-size: 100%;"

@@ -79,131 +79,6 @@ light_front_porch:
 
 
 #
-# Ceiling
-#
-label_ceiling:
-    widget_type: input_select
-    title2: Ceiling
-    entity: input_select.ceiling_effect
-    sub_entity: sensor.ceiling_effect_loaded
-    widget_style: "background-color:DARKGOLDENROD;"
-    title2_style: "font-size:175%;font-weight:400;"
-    state_text_style: "background-color:GOLDENROD;"
-    selectcontainer_style: "top:53px;"
-    select_style: "background-color:GOLDENROD;color:$white;"
-
-washlight_bedroom:
-    widget_type: switch
-    title: Bedroom
-    entity: light.bedroom
-    widget_style: "background-color:DARKGOLDENROD;"
-
-washlight_middle:
-    widget_type: switch
-    title: Middle
-    entity: light.middle
-    widget_style: "background-color:DARKGOLDENROD;"
-
-washlight_lounge:
-    widget_type: switch
-    title: Lounge
-    entity: light.lounge
-    widget_style: "background-color:DARKGOLDENROD;"
-
-
-#
-# Climate
-#
-label_climate:
-    widget_type: multisensor
-    title2: Climate
-    entity: sensor.average_temperature
-    entity2: sensor.average_humidity
-    widget_style: "background-color:TEAL;"
-    title2_style: "font-size:175%;font-weight:400;"
-
-#switch_humidifier:
-#    widget_type: label
-#    title: Humidifier
-#    widget_style: "background-color:TEAL;"
-
-#switch_dehumidifier:
-#    widget_type: switch
-#    title: Dehumidifier
-#    entity: switch.dehumidifier
-#    widget_style: "background-color:TEAL;"
-
-#switch_air_filter:
-#    widget_type: label
-#    title: Air Filter
-#    widget_style: "background-color:TEAL;"
-
-
-#
-# Kitchen
-#
-label_kitchen:
-    title2: Kitchen
-    widget_type: multisensor
-    title2: Kitchen
-    entity: sensor.kitchen_temperature
-    entity2: ""
-    widget_style: "background-color:SADDLEBROWN;"
-    title2_style: "font-size:175%;font-weight:400;"
-
-light_countertop:
-    widget_type: light
-    title: Countertop
-    entity: light.countertop
-    widget_style: "background-color:SADDLEBROWN;"
-
-light_island:
-    widget_type: light
-    title: Island
-    entity: light.island
-    widget_style: "background-color:SADDLEBROWN;"
-
-light_microwave:
-    widget_type: light
-    title: Microwave
-    entity: light.microwave
-    widget_style: "background-color:SADDLEBROWN;"
-
-light_sink:
-    widget_type: light
-    title: Sink
-    entity: light.sink
-    widget_style: "background-color:SADDLEBROWN;"
-
-
-#
-# Washroom
-#
-label_washroom:
-    widget_type: multisensor
-    title2: Toilet
-    entity: sensor.washroom_temperature
-    entity2: sensor.washroom_humidity
-    widget_style: "background-color:ROYALBLUE;"
-    title2_style: "font-size:175%;font-weight:400;"
-
-light_shower:
-    widget_type: light
-    title: Shower
-    entity: light.shower
-    widget_style: "background-color:ROYALBLUE;"
-
-light_lavatory:
-    widget_type: label
-    title: Lavatory
-    widget_style: "background-color:ROYALBLUE;"
-
-spacer_tetris:
-    widget_type: label
-    widget_style: "background-color:ROYALBLUE;"
-
-
-#
 # Bedroom
 #
 label_bedroom:
@@ -235,9 +110,31 @@ light_office:
 
 switch_office_airconditioner:
     widget_type: switch
-    title: Lights
-    entity: switch.office_ac
+    title: Air Conditioner
+    entity: switch.air_conditioner
     widget_style: "background-color:yellowgreen;"
+
+
+#
+# kitchen
+#
+label_kitchen:
+    widget_type: label
+    title2: Kitchen
+    widget_style: "background-color:purple;"
+    title2_style: "font-size:175%;font-weight:400;"
+
+light_kitchen_pendants:
+    widget_type: switch
+    title: Pendants
+    entity: switch.kitchen_pendants
+    widget_style: "background-color:purple;"
+
+light_kitchen_table:
+    widget_type: switch
+    title: Table
+    entity: switch.kitchen_table
+    widget_style: "background-color:purple;"
 
 #
 # Family Room
@@ -250,8 +147,15 @@ label_familyroom:
 
 light_familyroom:
     widget_type: light
-    title: Family Room
+    title: Book Cases
     entity: light.family_room
+    widget_style: "background-color:DARKRED;"
+    state_text_style: "background-color:FIREBRICK;"
+
+light_familyroom_ceiling:
+    widget_type: switch
+    title: Ceiling
+    entity: switch.family_room_overhead
     widget_style: "background-color:DARKRED;"
     state_text_style: "background-color:FIREBRICK;"
 
@@ -278,13 +182,33 @@ light_nightlights_dexter:
 
 
 #
+# Outdoor
+#
+label_outdoor:
+    widget_type: label
+    title2: Outdoors
+    widget_style: "background-color:ORANGE;"
+    title2_style: "font-size:175%;font-weight:400;"
+
+light_patio:
+    widget_type: switch
+    title: Lake Patio
+    entity: switch.patio
+    widget_style: "background-color:ORANGE;"
+
+light_balcony:
+    widget_type: switch
+    title: Street Balcony
+    entity: switch.balcony
+    widget_style: "background-color:ORANGE;"
+
+#
 # Layout
 #
 layout:
     - include: header
     - nav_main,         label(4x1), reload, temperature, clock
-    - nav_switchboard,  label_office, light_office, switch_office_airconditioner
-    - nav_weather,      label_bedroom, light_bedroom
-    - nav_spacer(1x2)
-    -                   label_familyroom, light_familyroom
-    - nav_status,       spacer(4x1), label_nightlights, light_nightlights_zoey, light_nightlights_dexter
+    - nav_switchboard,  label_office, light_office, switch_office_airconditioner, spacer, label_kitchen, light_kitchen_pendants, light_kitchen_table
+    - nav_weather,      label_bedroom, light_bedroom, spacer, spacer, label_familyroom, light_familyroom, light_familyroom_ceiling
+    - nav_spacer(1x1),  label_nightlights, light_nightlights_zoey, light_nightlights_dexter, spacer, label_outdoor, light_patio, light_balcony
+    - nav_status

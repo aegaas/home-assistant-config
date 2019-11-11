@@ -303,8 +303,7 @@ aqi:
 layout:
     - include: header
     - nav_main,         label(4x1), reload, temperature, clock
-    - nav_switchboard,  camera_noaa_geocolor(3x3), camera_noaa_water_vapour(3x3), wind
+    - nav_switchboard,  camera_noaa_geocolor(3x2), camera_noaa_water_vapour(3x2), wind
     - nav_weather,      wind_icon
-    - nav_spacer(1x2),  spacer
-    -                   daily_forecast(3x1), weekly_forecast(3x1)
+    - nav_spacer(1x1),  daily_forecast(3x1), weekly_forecast(3x1)
     - nav_status,       temperature_today, weather_icon_today, temperature_tomorrow, weather_icon_tomorrow, temperature_after_tomorrow, weather_icon_after_tomorrow

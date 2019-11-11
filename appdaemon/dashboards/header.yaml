@@ -19,4 +19,4 @@ temperature:
 clock:
     widget_type: clock
     time_format: 12hr
-    widget_style: "background: DARKSLATEBLUE;"
+    widget_style: "background: DARKSLATEBLUE; font-size: 70% !important"
