@@ -1,0 +1,6 @@
+alias: Turn On PS3
+sequence:
+  - service: remote.turn_on
+    entity_id: remote.rec_room
+    data:
+      activity: "Play PS3"

@@ -1,0 +1,8 @@
+- platform: template
+  sensors:
+    family_room_media:
+      value_template: '{{ state_attr("remote.family_room", "current_activity") }}'
+      friendly_name: 'Family Room'
+    rec_room_media:
+      value_template: '{{ state_attr("remote.rec_room", "current_activity") }}'
+      friendly_name: 'Rec Room'

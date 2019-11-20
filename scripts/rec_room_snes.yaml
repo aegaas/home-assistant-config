@@ -1,0 +1,6 @@
+alias: Turn On SNES Classic
+sequence:
+  - service: remote.turn_on
+    entity_id: remote.rec_room
+    data:
+      activity: "Play SNES Classic"

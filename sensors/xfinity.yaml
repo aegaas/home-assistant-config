@@ -1,0 +1,3 @@
+- platform: xfinity
+  username: !secret xfinity_username
+  password: !secret xfinity_password
