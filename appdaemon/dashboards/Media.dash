@@ -1,0 +1,204 @@
+#
+# Main arguments, all optional
+#
+title: Status
+widget_dimensions: [121, 122]
+widget_size: [1, 1]
+widget_margins: [5, 5]
+columns: 8
+rows: 6
+global_parameters:
+    use_comma: 0
+    precision: 0
+    use_hass_icon: 1
+
+
+#
+# Common navigation
+#
+nav_main:
+    widget_type: navigate
+    dashboard: Main
+    title2: Home
+    icon_inactive: mdi-home-assistant
+    widget_style: "background: #36578c;"
+
+nav_switchboard:
+    widget_type: navigate
+    dashboard: Switchboard
+    title2: Switchboard
+    icon_inactive: mdi-nintendo-switch
+    widget_style: "background: #36578c;"
+
+nav_weather:
+    widget_type: navigate
+    dashboard: Weather
+    title2: Weather
+    icon_inactive: mdi-weather-partly-cloudy
+    widget_style: "background: #36578c;"
+
+nav_media:
+    widget_type: navigate
+    dashboard: Media
+    title2: Media
+    icon_inactive: mdi-youtube
+    widget_style: "background: #90918c;"
+
+nav_status:
+    widget_type: navigate
+    dashboard: Status
+    title2: Status
+    icon_inactive: mdi-information-outline
+    widget_style: "background: #36578c;"
+
+nav_spacer:
+    widget_type: label
+    widget_style: "background: #36578c;"
+
+
+#
+# Header
+#
+label:
+    widget_type: sensor
+    title2: Status
+    entity: sensor.version_friendly
+    sub_entity: sensor.update_available
+    widget_style: "background: #90918c;"
+    title2_style: "text-transform: uppercase; letter-spacing: 0.35em;"
+    text_style: "font-size: 250%;"
+    state_text_style: "font-size:125%;padding-bottom:0.15em;background-color:#90918c;"
+
+
+#
+# Family Room
+#
+fr_label:
+    widget_type: label
+    title2: Family Room
+    title2_style: "font-size:175%;font-weight:400;"
+
+fr_appletv:
+    widget_type: mode
+    entity: sensor.family_room_media
+    mode: Watch Apple TV
+    script: script.fr_atv
+    title: Apple TV
+    icon_on: mdi-apple
+    icon_off: mdi-apple
+
+fr_off:
+    widget_type: mode
+    entity: sensor.family_room_media
+    script: script.fr_off
+    mode: PowerOff
+    title: Power Off
+    icon_on: mdi-power
+    icon_off: mdi-power
+
+#
+# Rec Room
+#
+rec_label:
+    widget_type: label
+    title2: Rec Room
+    title2_style: "font-size:175%;font-weight:400;"
+
+# rec_label:
+#     widget_type: sensor
+#     title: Rec Room
+#     entity: sensor.rec_room_media
+#     title_style: "font-size:175%;font-weight:400;"
+#     widget_style: "color: purple !important"
+
+# rec_appletv:
+#     widget_type: script
+#     entity: script.rec_room_atv
+#     title2: Apple TV
+#     icon_on: mdi-apple
+#     icon_off: mdi-apple
+
+rec_appletv:
+    widget_type: mode
+    entity: sensor.rec_room_media
+    mode: Watch Apple TV
+    script: script.rec_room_atv
+    title: Apple TV
+    icon_on: mdi-apple
+    icon_off: mdi-apple
+
+# rec_switch:
+#     widget_type: script
+#     entity: script.rec_room_switch
+#     title2: Switch
+#     icon_on: mdi-nintendo-switch
+#     icon_off: mdi-nintendo-switch
+
+rec_switch:
+    widget_type: mode
+    entity: sensor.rec_room_media
+    mode: Play Nintendo Switch
+    script: script.rec_room_switch
+    title: Switch
+    icon_on: mdi-nintendo-switch
+    icon_off: mdi-nintendo-switch
+
+# rec_xbox:
+#     widget_type: script
+#     entity: script.rec_room_xbox
+#     title2: Xbox
+#     icon_on: mdi-xbox
+#     icon_off: mdi-xbox
+
+rec_xbox:
+    widget_type: mode
+    entity: sensor.rec_room_media
+    mode: Play Xbox One
+    script: script.rec_room_xbox
+    title: Xbox
+    icon_on: mdi-xbox
+    icon_off: mdi-xbox
+
+# rec_ps3:
+#     widget_type: script
+#     entity: script.rec_room_ps3
+#     title2: Playstion 3
+#     icon_on: mdi-playstation
+#     icon_off: mdi-playstation
+
+rec_ps3:
+    widget_type: mode
+    entity: sensor.rec_room_media
+    mode: Play PS3
+    script: script.rec_room_ps3
+    title: Playstation 3
+    icon_on: mdi-playstation
+    icon_off: mdi-playstation
+
+# rec_off:
+#     widget_type: script
+#     entity: script.rec_room_off
+#     title2: Power Off
+#     icon_on: mdi-power
+#     icon_off: mdi-power
+
+rec_off:
+    widget_type: mode
+    entity: sensor.rec_room_media
+    mode: PowerOff
+    script: script.rec_room_off
+    title : Power Off
+    icon_on: mdi-power
+    icon_off: mdi-power
+
+
+#
+# Layout
+#
+layout:
+    - include: header
+    - nav_main,         label(4x1), reload, temperature, clock
+    - nav_switchboard,  rec_label, rec_appletv, rec_switch, rec_xbox, rec_ps3, rec_off
+    - nav_weather,      spacer, spacer, spacer
+    - nav_media,        fr_label, fr_appletv, fr_off
+    - nav_status   

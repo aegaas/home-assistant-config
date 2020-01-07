@@ -31,7 +31,6 @@ head_includes:
  - <! head tags go here ->
  - <! Refresh every 15 minutes to avoid memory issues with slideshows. ->
  - <meta http-equiv="Refresh" content="900">
-
 #
 # Custom body includes - should be a YAML List, e.g.:
 #
@@ -54,7 +53,7 @@ body_includes:
 
 white: "#fff"
 red: "#ff0055"
-green: "#aaff00"
+green: "#4ea701"
 blue: "#00aaff"
 purple: "#aa00ff"
 yellow: "#ffff00"
@@ -167,7 +166,7 @@ cover_widget_style: $background_style
 cover_state_text_style: "color: $white"
 
 clock_date_style: "color: $white"
-clock_time_style: "color: $purple"
+clock_time_style: "color: $green"
 clock_widget_style: $background_style
 
 weather_main_style: "color: $orange"

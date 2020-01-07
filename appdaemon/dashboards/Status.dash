@@ -21,32 +21,39 @@ nav_main:
     dashboard: Main
     title2: Home
     icon_inactive: mdi-home-assistant
-    widget_style: "background: DARKSLATEBLUE;"
+    widget_style: "background: #36578c;"
 
 nav_switchboard:
     widget_type: navigate
     dashboard: Switchboard
     title2: Switchboard
     icon_inactive: mdi-nintendo-switch
-    widget_style: "background: DARKSLATEBLUE;"
+    widget_style: "background: #36578c;"
 
 nav_weather:
     widget_type: navigate
     dashboard: Weather
     title2: Weather
-    icon_inactive: mdi-weather-partlycloudy
-    widget_style: "background: DARKSLATEBLUE;"
+    icon_inactive: mdi-weather-partly-cloudy
+    widget_style: "background: #36578c;"
+
+nav_media:
+    widget_type: navigate
+    dashboard: Media
+    title2: Media
+    icon_inactive: mdi-youtube
+    widget_style: "background: #36578c;"
 
 nav_status:
     widget_type: navigate
     dashboard: Status
     title2: Status
     icon_inactive: mdi-information-outline
-    widget_style: "background: MEDIUMSLATEBLUE;"
+    widget_style: "background: #90918c;"
 
 nav_spacer:
     widget_type: label
-    widget_style: "background: DARKSLATEBLUE;"
+    widget_style: "background: #36578c;"
 
 
 #
@@ -57,10 +64,10 @@ label:
     title2: Status
     entity: sensor.version_friendly
     sub_entity: sensor.update_available
-    widget_style: "background: MEDIUMSLATEBLUE;"
+    widget_style: "background: #90918c;"
     title2_style: "text-transform: uppercase; letter-spacing: 0.35em;"
-    text_style: "font-size: 300%;"
-    state_text_style: "font-size:125%;padding-bottom:0.15em;background-color:MEDIUMSLATEBLUE;"
+    text_style: "font-size: 250%;"
+    state_text_style: "font-size:125%;padding-bottom:0.15em;background-color:#90918c;"
 
 
 #
@@ -94,14 +101,14 @@ cpu_use:
     state_text_style: "background-color:#555;"
 
 memory_use:
-    widget_type: entitysensor
+    widget_type: sensor
     entity: sensor.memory_use_percent
     sub_entity: sensor.memory_use
     title: Memory Use
     state_text_style: "background-color:#555;"
 
 disk_use:
-    widget_type: entitysensor
+    widget_type: sensor
     entity: sensor.disk_use_percent
     sub_entity: sensor.disk_use_home
     title: Disk Use
@@ -188,7 +195,7 @@ status_motion:
 layout:
     - include: header
     - nav_main,         label(4x1), reload, temperature, clock
-    - nav_switchboard,  uptime, uptime_host, database_size, log_size, status_doors, status_motion
-    - nav_weather,      cpu_use, memory_use, disk_use, online, sensor.speedtest_ping, upspeed, downspeed
-    - nav_spacer(1x1),  spacer, spacer, spacer
+    - nav_switchboard,  uptime, uptime_host, online, spacer, spacer, upspeed, downspeed
+    - nav_weather,      cpu_use, memory_use, disk_use, spacer, spacer, sensor.speedtest_ping, sensor.xfinity_usage
+    - nav_media,        spacer, spacer, spacer
     - nav_status   

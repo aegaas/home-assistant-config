@@ -21,32 +21,39 @@ nav_main:
     dashboard: Main
     title2: Home
     icon_inactive: mdi-home-assistant
-    widget_style: "background: DARKSLATEBLUE;"
+    widget_style: "background: #36578c;"
 
 nav_switchboard:
     widget_type: navigate
     dashboard: Switchboard
     title2: Switchboard
     icon_inactive: mdi-nintendo-switch
-    widget_style: "background: DARKSLATEBLUE;"
+    widget_style: "background: #36578c;"
 
 nav_weather:
     widget_type: navigate
     dashboard: Weather
     title2: Weather
-    icon_inactive: mdi-weather-partlycloudy
-    widget_style: "background: MEDIUMSLATEBLUE;"
+    icon_inactive: mdi-weather-partly-cloudy
+    widget_style: "background: #90918c;"
+
+nav_media:
+    widget_type: navigate
+    dashboard: Media
+    title2: Media
+    icon_inactive: mdi-youtube
+    widget_style: "background: #36578c;"
 
 nav_status:
     widget_type: navigate
     dashboard: Status
     title2: Status
     icon_inactive: mdi-information-outline
-    widget_style: "background: DARKSLATEBLUE;"
+    widget_style: "background: #36578c;"
 
 nav_spacer:
     widget_type: label
-    widget_style: "background: DARKSLATEBLUE;"
+    widget_style: "background: #36578c;"
 
 
 
@@ -58,63 +65,32 @@ label:
     title2: Weather
     entity: sensor.weather_summary
     sub_entity: sensor.weather_details
-    widget_style: "background: MEDIUMSLATEBLUE;"
+    widget_style: "background: #90918c;"
     title2_style: "text-transform: uppercase; letter-spacing: 0.35em;"
-    text_style: "font-size: 300%;"
-    state_text_style: "font-size:125%;padding-bottom:0.15em;background-color:MEDIUMSLATEBLUE;"
+    text_style: "font-size: 250%;"
+    state_text_style: "font-size:125%;padding-bottom:0.15em;background-color:#90918c;"
 
 camera_noaa_water_vapour:
-    widget_type: entitycamera
-    refresh: 3
-    cache: 600
-    img_list:
-        - !secret camera_noaa_water_vapour
-    title_style: "background-color: rgba(0, 0, 0, 1);"
+    widget_type: camera
+    entity: camera.noaa_water_vapour
+    base_url: !secret appdaemon_hass_url
+    refresh: 60
+    widget_style: "object-fit: cover"
+    title: NOAA water vapor
 
 camera_noaa_geocolor:
-    widget_type: entitycamera
-    refresh: 3
-    cache: 600
-    img_list:
-        - !secret camera_noaa_geocolor
-    title_style: "background-color: rgba(0, 0, 0, 1);"
+    widget_type: camera
+    entity: camera.noaa_geocolor
+    base_url: !secret appdaemon_hass_url
+    refresh: 60
+    widget_style: "object-fit: cover"
+    title: NOAA Geocolor
 
 
 wind:
-    widget_type: entitysensor
+    widget_type: sensor
     entity: sensor.dark_sky_wind_speed
     title2_entity: sensor.wind_scale_friendly
-    widget_style: "background-color:inherit;"
-
-wind_icon:
-    widget_type: iconsensor
-    entity: sensor.wind_bearing_cardinal
-    title2_entity: sensor.wind_bearing_cardinal_friendly
-    icons:
-        "N":
-            icon: mdi-arrow-up
-            style: "$style_active"
-        "NE":
-            icon: mdi-arrow-top-right
-            style: "$style_active"
-        "E":
-            icon: mdi-arrow-right
-            style: "$style_active"
-        "SE":
-            icon: mdi-arrow-bottom-right
-            style: "$style_active"
-        "S":
-            icon: mdi-arrow-down
-            style: "$style_active"
-        "SW":
-            icon: mdi-arrow-bottom-left
-            style: "$style_active"
-        "W":
-            icon: mdi-arrow-left
-            style: "$style_active"
-        "NW":
-            icon: mdi-arrow-top-left
-            style: "$style_active"
     widget_style: "background-color:inherit;"
 
 
@@ -132,7 +108,7 @@ weekly_forecast:
     entity: sensor.dark_sky_daily_summary
 
 temperature_today:
-    widget_type: entitysensor
+    widget_type: sensor
     title: Today
     entity: sensor.dark_sky_daytime_high_temperature_0d
     sub_entity: sensor.weather_low_friendly
@@ -143,7 +119,7 @@ temperature_today:
     state_text_style: "background-color:inherit"
 
 temperature_tomorrow:
-    widget_type: entitysensor
+    widget_type: sensor
     title: Tomorrow
     entity: sensor.dark_sky_daytime_high_temperature_1d
     sub_entity: sensor.weather_low_1_friendly
@@ -154,7 +130,7 @@ temperature_tomorrow:
     state_text_style: "background-color:inherit"
 
 temperature_after_tomorrow:
-    widget_type: entitysensor
+    widget_type: sensor
     title: After Tomorrow
     entity: sensor.dark_sky_daytime_high_temperature_2d
     sub_entity: sensor.weather_low_2_friendly
@@ -166,7 +142,7 @@ temperature_after_tomorrow:
     state_text_style: "background-color:inherit"
 
 weather_icon_today:
-    widget_type: iconsensor
+    widget_type: icon
     entity: sensor.dark_sky_icon
     icons:
         clear-day:
@@ -206,7 +182,7 @@ weather_icon_today:
     state_text_style: "background-color:inherit"
 
 weather_icon_tomorrow:
-    widget_type: iconsensor
+    widget_type: icon
     entity: sensor.dark_sky_icon_1d
     icons:
         clear-day:
@@ -246,7 +222,7 @@ weather_icon_tomorrow:
     state_text_style: "background-color:inherit"
 
 weather_icon_after_tomorrow:
-    widget_type: iconsensor
+    widget_type: icon
     entity: sensor.dark_sky_icon_2d
     icons:
         clear-day:
@@ -304,6 +280,6 @@ layout:
     - include: header
     - nav_main,         label(4x1), reload, temperature, clock
     - nav_switchboard,  camera_noaa_geocolor(3x2), camera_noaa_water_vapour(3x2), wind
-    - nav_weather,      wind_icon
-    - nav_spacer(1x1),  daily_forecast(3x1), weekly_forecast(3x1)
+    - nav_weather
+    - nav_media,        daily_forecast(3x1), weekly_forecast(3x1)
     - nav_status,       temperature_today, weather_icon_today, temperature_tomorrow, weather_icon_tomorrow, temperature_after_tomorrow, weather_icon_after_tomorrow

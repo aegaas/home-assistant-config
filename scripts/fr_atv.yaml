@@ -1,0 +1,6 @@
+alias: Turn On Apple TV
+sequence:
+  - service: remote.turn_on
+    entity_id: remote.family_room
+    data:
+      activity: "Watch Apple TV"

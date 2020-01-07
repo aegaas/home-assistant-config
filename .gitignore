@@ -32,3 +32,5 @@ secrets.yaml
 !/.HA_VERSION
 !/.mdlrc
 !/.travis.yml
+
+*.pickle

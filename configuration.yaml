@@ -22,8 +22,6 @@ calendar: !include_dir_merge_list calendars
 #
 camera: !include_dir_merge_list cameras/
 
-cloud:
-
 #
 # Enable the configuration UI
 #
@@ -31,6 +29,7 @@ cloud:
 #
 config:
 
+mobile_app:
 
 #
 # Allow you to issue voice commands from the frontend in enabled browsers
@@ -38,14 +37,6 @@ config:
 # @link https://home-assistant.io/components/conversation/
 #
 # conversation:
-
-
-#
-# Counters
-#
-# @link https://www.home-assistant.io/components/counter/
-#
-counter: !include misc/counters.yaml
 
 
 #
@@ -134,7 +125,11 @@ homeassistant:
     - type: homeassistant
     - type: legacy_api_password
       api_password: !secret http_password
-#
+#     - type: trusted_networks
+#       trusted_networks:
+#         - 192.168.0.0/24
+#       allow_bypass_login: true
+# #
 # HomeKit
 #
 # @link https://www.home-assistant.io/components/homekit/
@@ -149,7 +144,6 @@ homekit: !include misc/homekit.yaml
 # @link https://home-assistant.io/components/http/
 #
 http:
-  api_password: !secret http_password
   base_url: !secret http_base_url
   server_port: !secret http_server_port
   cors_allowed_origins: !secret http_cors_allowed_origins
@@ -216,7 +210,7 @@ logbook:
 # @link https://home-assistant.io/components/logger/
 #
 logger:
-  default: warning
+  default: info
   logs:
     aiohttp.server: critical # EBOX newer component bug.
     homeassistant.components.media_player.plex: fatal # When Plex is offline.
@@ -299,7 +293,7 @@ sensor: !include_dir_merge_list sensors/
 
 speedtestdotnet:
   scan_interval:
-    minutes: 30
+    minutes: 60
   monitored_conditions:
     - ping
     - download
@@ -330,6 +324,9 @@ tplink:
   - host: 192.168.0.242
   - host: 192.168.0.243
   - host: 192.168.0.245
+  - host: 192.168.0.15
+  - host: 192.168.0.12
+  - host: 192.168.0.7
 
 tuya:
   username: !secret tuya_username
@@ -360,13 +357,6 @@ updater:
 # @link https://github.com/rogro82/hass-variables
 #
 variable: !include misc/variables.yaml
-
-
-xfinity:
-  username: !secret xfinity_username
-  password: !secret xfinity_password
-
-zeroconf:
 
 
 #

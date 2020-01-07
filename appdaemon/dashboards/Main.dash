@@ -21,32 +21,40 @@ nav_main:
     dashboard: Main
     title2: Home
     icon_inactive: mdi-home-assistant
-    widget_style: "background: MEDIUMSLATEBLUE;"
+    widget_style: "background: #90918c;"
 
 nav_switchboard:
     widget_type: navigate
     dashboard: Switchboard
     title2: Switchboard
     icon_inactive: mdi-nintendo-switch
-    widget_style: "background: DARKSLATEBLUE;"
+    widget_style: "background: #36578c;"
 
 nav_weather:
     widget_type: navigate
     dashboard: Weather
     title2: Weather
-    icon_inactive: mdi-weather-partlycloudy
-    widget_style: "background: DARKSLATEBLUE;"
+    icon_inactive: mdi-weather-partly-cloudy
+    widget_style: "background: #36578c;"
+
+nav_media:
+    widget_type: navigate
+    dashboard: Media
+    title2: Media
+    icon_inactive: mdi-youtube
+    widget_style: "background: #36578c;"
+
 
 nav_status:
     widget_type: navigate
     dashboard: Status
     title2: Status
     icon_inactive: mdi-information-outline
-    widget_style: "background: DARKSLATEBLUE;"
+    widget_style: "background: #36578c;"
 
 nav_spacer:
     widget_type: label
-    widget_style: "background: DARKSLATEBLUE;"
+    widget_style: "background: #36578c;"
 
 
 #
@@ -56,8 +64,8 @@ label:
     widget_type: sensor
     title2: Home Assistant
     entity: sensor.good_vibes
-    text_style: "font-size: 300%;"
-    widget_style: "background: MEDIUMSLATEBLUE;"
+    text_style: "font-size: 250%;"
+    widget_style: "background: #90918c;"
     title2_style: "text-transform: uppercase; letter-spacing: 0.35em;"
 
 
@@ -79,6 +87,28 @@ slideshow:
         - ""
         - sensor.apod
     title_style: "line-height:2em;opacity:0.8;"
+
+
+front_door_cam:
+    widget_type: camera
+    entity: camera.front_door
+    base_url: !secret appdaemon_hass_url
+    stream: "on"
+    refresh: 4
+
+backyard_door_cam:
+    widget_type: camera
+    entity: camera.backyard_door
+    base_url: !secret appdaemon_hass_url
+    stream: "on"
+    refresh: 4
+
+uphill_side_cam:
+    widget_type: camera
+    entity: camera.uphill_side
+    base_url: !secret appdaemon_hass_url
+    stream: "on"
+    refresh: 4
 
 #
 # Actions
@@ -110,20 +140,12 @@ night_mode:
     entity: input_boolean.night_mode
     title2: Good night!
 
-scene:
-    widget_type: input_select
-    title2: Set a scene
-    entity: input_select.scene
-    sub_entity: input_select.scene
-    state_text_style: "background-color:#555;"
-    select_style: "background-color:#555;color:$white;"
-
 
 #
 # Weather
 #
 temperature_now:
-    widget_type: entitysensor
+    widget_type: sensor
     entity: sensor.dark_sky_temperature
     sub_entity: sensor.weather_low_friendly
     title2_entity: sensor.feels_like
@@ -132,7 +154,7 @@ temperature_now:
     state_text_style: "background-color:inherit"
 
 weather_icon_now:
-    widget_type: iconsensor
+    widget_type: icon
     entity: sensor.dark_sky_icon
     icons:
         clear-day:
@@ -172,7 +194,7 @@ weather_icon_now:
     state_text_style: "background-color:inherit"
 
 daily_forecast:
-    widget_type: entitysensor
+    widget_type: sensor
     title: 24h Forecast
     title_entity: sensor.dark_sky_minutely_summary
     entity: sensor.dark_sky_hourly_summary
@@ -180,7 +202,7 @@ daily_forecast:
     title_style: "background-color:#555;width:100%;margin-left:0%;margin-top:-5px;padding:5px 0 3px;border-radius:5px;"
 
 wind:
-    widget_type: entitysensor
+    widget_type: sensor
     entity: sensor.dark_sky_wind_speed
     title2_entity: sensor.wind_scale_friendly
     sub_entity: sensor.wind_bearing_cardinal_friendly
@@ -197,7 +219,7 @@ wind:
 layout:
     - include: header
     - nav_main,         label(4x1), reload, temperature, clock
-    - nav_switchboard,  slideshow(4x3), wind, temperature_now, weather_icon_now
+    - nav_switchboard,  front_door_cam(3x2), wind, temperature_now, weather_icon_now
     - nav_weather,      daily_forecast(3x1)
-    - nav_spacer(1x1),  spacer, spacer, spacer
-    - nav_status,       good_morning, night_mode, nap_mode, scene, quiet_mode, low_power_mode, spacer, spacer, spacer
+    - nav_media,        backyard_door_cam(3x2), uphill_side_cam(3x2)
+    - nav_status

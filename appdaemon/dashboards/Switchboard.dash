@@ -21,32 +21,39 @@ nav_main:
     dashboard: Main
     title2: Home
     icon_inactive: mdi-home-assistant
-    widget_style: "background: DARKSLATEBLUE;"
+    widget_style: "background: #36578c;"
 
 nav_switchboard:
     widget_type: navigate
     dashboard: Switchboard
     title2: Switchboard
     icon_inactive: mdi-nintendo-switch
-    widget_style: "background: MEDIUMSLATEBLUE;"
+    widget_style: "background: #90918c;"
 
 nav_weather:
     widget_type: navigate
     dashboard: Weather
     title2: Weather
-    icon_inactive: mdi-weather-partlycloudy
-    widget_style: "background: DARKSLATEBLUE;"
+    icon_inactive: mdi-weather-partly-cloudy
+    widget_style: "background: #36578c;"
+
+nav_media:
+    widget_type: navigate
+    dashboard: Media
+    title2: Media
+    icon_inactive: mdi-youtube
+    widget_style: "background: #36578c;"
 
 nav_status:
     widget_type: navigate
     dashboard: Status
     title2: Status
     icon_inactive: mdi-information-outline
-    widget_style: "background: DARKSLATEBLUE;"
+    widget_style: "background: #36578c;"
 
 nav_spacer:
     widget_type: label
-    widget_style: "background: DARKSLATEBLUE;"
+    widget_style: "background: #36578c;"
 
 
 #
@@ -56,26 +63,9 @@ label:
     widget_type: sensor
     title2: Switchboard
     entity: sensor.modes_friendly
-    text_style: "font-size: 300%;"
-    widget_style: "background: MEDIUMSLATEBLUE;"
+    text_style: "font-size: 250%;"
+    widget_style: "background: #90918c;"
     title2_style: "text-transform: uppercase; letter-spacing: 0.35em;"
-
-
-#
-# Exterior
-#
-label_exterior:
-    widget_type: multisensor
-    title2: Exterior
-    entity: sensor.dark_sky_temperature
-    entity2: sensor.dark_sky_humidity
-    widget_style: "background-color:DARKOLIVEGREEN;"
-    title2_style: "font-size:175%;font-weight:400;"
-
-light_front_porch:
-    widget_type: label
-    title: Front Porch
-    widget_style: "background-color:DARKOLIVEGREEN;"
 
 
 #
@@ -84,35 +74,35 @@ light_front_porch:
 label_bedroom:
     widget_type: label
     title2: Master Bedroom
-    widget_style: "background-color:INDIGO;"
+    widget_style: "border: 3px solid #90918c;"
     title2_style: "font-size:175%;font-weight:400;"
 
 light_bedroom:
     widget_type: light
     title: Nightstands
     entity: light.master_bedroom
-    widget_style: "background-color:INDIGO;"
+    widget_style: "border: 3px solid #90918c;"
 
 #
 # office
 #
 label_office:
     widget_type: label
-    title2: Office
-    widget_style: "background-color:yellowgreen;"
+    title2: Aaron's Office
+    widget_style: "border: 3px solid #36578c;"
     title2_style: "font-size:175%;font-weight:400;"
 
 light_office:
     widget_type: light
     title: Office
     entity: light.office
-    widget_style: "background-color:yellowgreen;"
+    widget_style: "border: 3px solid #36578c;"
 
-switch_office_airconditioner:
-    widget_type: switch
-    title: Air Conditioner
-    entity: switch.air_conditioner
-    widget_style: "background-color:yellowgreen;"
+# switch_office_airconditioner:
+#     widget_type: switch
+#     title: Air Conditioner
+#     entity: switch.air_conditioner
+#     widget_style: "border: 3px solid yellowgreen;"
 
 
 #
@@ -121,20 +111,26 @@ switch_office_airconditioner:
 label_kitchen:
     widget_type: label
     title2: Kitchen
-    widget_style: "background-color:purple;"
+    widget_style: "border: 3px solid #90918c;"
     title2_style: "font-size:175%;font-weight:400;"
 
 light_kitchen_pendants:
     widget_type: switch
     title: Pendants
     entity: switch.kitchen_pendants
-    widget_style: "background-color:purple;"
+    widget_style: "border: 3px solid #90918c;"
 
 light_kitchen_table:
     widget_type: switch
     title: Table
     entity: switch.kitchen_table
-    widget_style: "background-color:purple;"
+    widget_style: "border: 3px solid #90918c;"
+
+light_kitchen_ceiling:
+    widget_type: switch
+    title: Ceiling
+    entity: switch.kitchen_lights
+    widget_style: "border: 3px solid #90918c;"
 
 #
 # Family Room
@@ -142,73 +138,110 @@ light_kitchen_table:
 label_familyroom:
     widget_type: label
     title2: Family Room
-    widget_style: "background-color:DARKRED;"
+    widget_style: "border: 3px solid #36578c;"
     title2_style: "font-size:175%;font-weight:400;"
 
 light_familyroom:
     widget_type: light
     title: Book Cases
     entity: light.family_room
-    widget_style: "background-color:DARKRED;"
-    state_text_style: "background-color:FIREBRICK;"
+    widget_style: "border: 3px solid #36578c;"
+    state_text_style: "background-color:white;"
 
 light_familyroom_ceiling:
     widget_type: switch
     title: Ceiling
     entity: switch.family_room_overhead
-    widget_style: "background-color:DARKRED;"
-    state_text_style: "background-color:FIREBRICK;"
+    widget_style: "border: 3px solid #36578c;"
+    state_text_style: "background-color:white;"
 
 #
 # Night Lights
 #
 label_nightlights:
     widget_type: label
-    title2: Night Lights
-    widget_style: "background-color:BLACK;"
+    title2: Kids' Rooms
+    widget_style: "border: 3px solid #36578c;"
     title2_style: "font-size:175%;font-weight:400;"
 
 light_nightlights_zoey:
     widget_type: light
     title: Zoey
     entity: light.zoeys_lamp
-    widget_style: "background-color:BLACK;"
+    widget_style: "border: 3px solid #36578c;"
 
 light_nightlights_dexter:
     widget_type: light
     title: Dexter
     entity: light.dexter_s_night_light
-    widget_style: "background-color:BLACK;"
+    widget_style: "border: 3px solid #36578c;"
+
+#
+# Basement
+# 
+label_basement:
+    widget_type: label
+    title2: Bonus Level
+    widget_style: "border: 3px solid #90918c;"
+    title2_style: "font-size:175%;font-weight:400;"
+
+light_dojo:
+    widget_type: switch
+    title: Dojo
+    entity: switch.dojo
+    widget_style: "border: 3px solid #90918c;"
 
 
 #
-# Outdoor
+# Outdoor Front
 #
 label_outdoor:
     widget_type: label
-    title2: Outdoors
-    widget_style: "background-color:ORANGE;"
+    title2: Outdoors Front
+    widget_style: "border: 3px solid #90918c;"
+    title2_style: "font-size:175%;font-weight:400;"
+
+light_holiday_front:
+    widget_type: switch
+    title: Holiday Front
+    entity: switch.66580365d8f15b87dc94
+    widget_style: "border: 3px solid #90918c;"
+
+light_balcony:
+    widget_type: switch
+    title: Street Balcony
+    entity: switch.balcony
+    widget_style: "border: 3px solid #90918c;"
+
+
+#
+# Outdoor Lake
+#
+label_lake:
+    widget_type: label
+    title2: Outdoors Lake
+    widget_style: "border: 3px solid #36578c;"
     title2_style: "font-size:175%;font-weight:400;"
 
 light_patio:
     widget_type: switch
     title: Lake Patio
     entity: switch.patio
-    widget_style: "background-color:ORANGE;"
+    widget_style: "border: 3px solid #36578c;"
 
-light_balcony:
+light_holiday_lake:
     widget_type: switch
-    title: Street Balcony
-    entity: switch.balcony
-    widget_style: "background-color:ORANGE;"
-
+    title: Holiday Lake
+    entity: switch.66580365d8f15b87df37
+    widget_style: "border: 3px solid #36578c;"
+#
 #
 # Layout
 #
 layout:
     - include: header
     - nav_main,         label(4x1), reload, temperature, clock
-    - nav_switchboard,  label_office, light_office, switch_office_airconditioner, spacer, label_kitchen, light_kitchen_pendants, light_kitchen_table
-    - nav_weather,      label_bedroom, light_bedroom, spacer, spacer, label_familyroom, light_familyroom, light_familyroom_ceiling
-    - nav_spacer(1x1),  label_nightlights, light_nightlights_zoey, light_nightlights_dexter, spacer, label_outdoor, light_patio, light_balcony
-    - nav_status
+    - nav_switchboard,  label_office, light_office, spacer, light_kitchen_ceiling, light_kitchen_pendants, light_kitchen_table, label_kitchen
+    - nav_weather,      label_bedroom, light_bedroom, spacer, spacer, light_familyroom, light_familyroom_ceiling, label_familyroom
+    - nav_media,        label_nightlights, light_nightlights_zoey, light_nightlights_dexter, spacer, light_balcony, light_holiday_front, label_outdoor
+    - nav_status,       label_basement, light_dojo, spacer, spacer, light_patio, light_holiday_lake, label_lake

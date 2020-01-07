@@ -4,13 +4,13 @@
 reload:
     widget_type: reload
     title2: Reload
-    widget_style: "background: MEDIUMSLATEBLUE;"
+    widget_style: "background: #90918c;"
 
 temperature:
-    widget_type: multisensor
+    widget_type: sensor
     entity: sensor.dark_sky_apparent_temperature
     entity2: sensor.dark_sky_humidity
-    widget_style: "background: DARKSLATEBLUE;"
+    widget_style: "background: #36578c;"
     valueunit_style: "margin-top:-8px;font-size:225%;"
     unit_style: "margin-top:-3px;"
     valueunit2_style: "margin-top:-8px;font-size:225%;"
@@ -19,4 +19,5 @@ temperature:
 clock:
     widget_type: clock
     time_format: 12hr
-    widget_style: "background: DARKSLATEBLUE; font-size: 70% !important"
+    widget_style: "background: #36578c; font-size: 70% !important; color: #fff !important"
+    time_style: "color: white; font-size: 30px;"

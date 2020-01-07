@@ -1,10 +1,21 @@
-log:
-  logfile: STDOUT
-  errorfile: STDERR
+logs:
+  main_log:
+    filename: /conf/logs/appdaemon.log
+  access_log:
+    filename: /conf/logs/access.log
+  error_log:
+    filename: /conf/logs/error.log
+  diag_log:
+    filename: /conf/logs/diag.log
+    log_generations: 5
+    log_size: 1024
+    format: "{asctime} {levelname:<8} {appname:<10}: {message}"
+  test_log:
+    name: TestLog
+    filename: /conf/logs/test.log
 appdaemon:
-  threads: 10
+  total_threads: 10
   app_dir: !secret appdaemon_app_dir
-  disable_apps: 1
   elevation: !secret appdaemon_elevation
   latitude: !secret appdaemon_latitude
   longitude: !secret appdaemon_longitude
@@ -15,6 +26,13 @@ appdaemon:
       ha_url: !secret appdaemon_hass_url
       token: !secret appdaemon_hass_token
       cert_verify: false
+http:
+  url: http://192.168.0.2:5050/
+  headers:
+    Access-Control-Allow-Origin: "*"
+    transport: socketio
+api:
+admin:
 hadashboard:
   dash_url: !secret hadashboard_dash_url
   dash_dir: !secret hadashboard_dash_dir
